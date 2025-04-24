@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:TFG"
+    xmlns:pages="clr-namespace:TFG.Pages"
+    x:Class="TFG.AppShell">
+
+    <!-- Definir las pestañas del Tab Bar -->
+    <TabBar>
+        <!-- Primera pestaña: Página de salas -->
+        <ShellContent Title="Salas" Icon="salas_icon.png">
+            <views:MainPage />
+        </ShellContent>
+    </TabBar>
+
+</Shell>
