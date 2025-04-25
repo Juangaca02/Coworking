@@ -42,11 +42,23 @@ build_metadata.AdditionalFiles.ManifestResourceName = TFG.Pages.CalendarPage.xam
 build_metadata.AdditionalFiles.TargetPath = Pages\CalendarPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\CalendarPage.xaml
 
+[C:/Users/JUANAN/source/repos/Coworking/TFG/Pages/HistorialPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = TFG.Pages.HistorialPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\HistorialPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\HistorialPage.xaml
+
 [C:/Users/JUANAN/source/repos/Coworking/TFG/Pages/SalaDetailPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TFG.Pages.SalaDetailPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Pages\SalaDetailPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\SalaDetailPage.xaml
+
+[C:/Users/JUANAN/source/repos/Coworking/TFG/Pages/SalasPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = TFG.Pages.SalasPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\SalasPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\SalasPage.xaml
 
 [C:/Users/JUANAN/source/repos/Coworking/TFG/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml

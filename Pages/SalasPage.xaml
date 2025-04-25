@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TFG.Pages.SalasPage"
+             Title="SalasPage">
+    <Grid>
+        <!-- Fila 0, donde va el SearchBar -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Barra de búsqueda -->
+        <SearchBar x:Name="searchBar"
+        Placeholder="Buscar por capacidad o equipamiento"
+        TextChanged="OnSearchTextChanged"
+        Margin="10"
+        Grid.Row="0" />
+
+        <!-- Listado de salas disponibles -->
+        <ScrollView Grid.Row="1" Orientation="Vertical">
+            <CollectionView x:Name="salasCollectionView" ItemsSource="{Binding SalasDisponibles}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="10" Margin="5" BackgroundColor="#f5f5f5" CornerRadius="10">
+                            <Grid ColumnDefinitions="auto,*" RowDefinitions="auto">
+                                <Label Text="{Binding Id}" IsVisible="Hidden"/>
+                                <Image Grid.Column="0"
+                                Source="{Binding Imagen}"
+                                WidthRequest="80" HeightRequest="80"
+                                Aspect="AspectFill"
+                                BackgroundColor="#e0e0e0" />
+                                <Grid Grid.Column="1" Padding="10,0,0,0"
+                                RowDefinitions="auto,auto,auto,auto"
+                                ColumnDefinitions="*,*">
+                                    <Label Grid.ColumnSpan="2" Text="{Binding Nombre}" FontSize="18" FontAttributes="Bold" TextColor="#333333"/>
+                                    <Label Grid.Column="0" Grid.Row="1" Text="Capacidad:" FontAttributes="Bold"/>
+                                    <Label Grid.Column="0" Grid.Row="2" Text="{Binding Capacidad}" />
+                                    <Label Grid.Column="1" Grid.Row="1" Text="Estado:" FontAttributes="Bold"/>
+                                    <Label Grid.Column="1" Grid.Row="2" Text="{Binding Estado}" />
+                                    <Label Grid.ColumnSpan="2" Grid.Row="3" Text="{Binding Equipamiento}" FontSize="14" Margin="0,5,0,0"/>
+                                    <Button Grid.Column="1" Grid.Row="4" 
+                                    Text="Ver Reservas"
+                                    HorizontalOptions="End"
+                                    BackgroundColor="#4CAF50" TextColor="White"
+                                    WidthRequest="100"
+                                    Clicked="OnVerReservasClicked"/>
+                                </Grid>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </ScrollView>
+    </Grid>
+</ContentPage>

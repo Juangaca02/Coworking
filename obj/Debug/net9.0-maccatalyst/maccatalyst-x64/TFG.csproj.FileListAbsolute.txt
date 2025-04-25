@@ -310,3 +310,4 @@ C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatal
 C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\TFG.pdb
 C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\TFG.genruntimeconfig.cache
 C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\ref\TFG.dll
+C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\TFG.sourcelink.json

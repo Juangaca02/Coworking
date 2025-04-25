@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TFG.Pages.HistorialPage"
+             Title="Historial">
+
+    <StackLayout Padding="10">
+        <!-- Selector de rango de fechas -->
+        <Label Text="Selecciona un rango de fechas:" FontSize="18" />
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Label Text="Desde: " VerticalOptions="Center" />
+            <DatePicker x:Name="datePickerDesde" />
+            <Label Text="Hasta: " VerticalOptions="Center" />
+            <DatePicker x:Name="datePickerHasta" />
+        </StackLayout>
+
+        <!-- Opción para seleccionar formato -->
+        <Label Text="Elige el formato de exportación:" FontSize="18" />
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button Text="Excel" Clicked="OnExcelClicked" />
+            <Button Text="PDF" Clicked="OnPdfClicked" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

@@ -6,12 +6,19 @@
     xmlns:pages="clr-namespace:TFG.Pages"
     x:Class="TFG.AppShell">
 
-    <!-- Definir las pestañas del Tab Bar -->
-    <TabBar>
-        <!-- Primera pestaña: Página de salas -->
-        <ShellContent Title="Salas" Icon="salas_icon.png">
-            <views:MainPage />
-        </ShellContent>
-    </TabBar>
+    <!-- Menú de Hamburguesa -->
+    <FlyoutItem Title="Menu" Icon="hamburger_icon.png">
+        <Tab>
+            <!-- Pestaña de Salas -->
+            <ShellContent Title="Salas" Icon="salas_icon.png">
+                <views:MainPage />
+            </ShellContent>
+
+            <!-- Pestaña de Historial -->
+            <ShellContent Title="Historial" Icon="historial_icon.png">
+                <pages:HistorialPage />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
 
 </Shell>

@@ -14,7 +14,13 @@
     <MauiXaml Update="Pages\CalendarPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Pages\HistorialPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Pages\SalaDetailPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Pages\SalasPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>
