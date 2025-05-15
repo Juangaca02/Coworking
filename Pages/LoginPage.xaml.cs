@@ -30,8 +30,11 @@ public partial class LoginPage : ContentPage
         {
             SesionActual.UsuarioLogueado = usuarioAutenticado;
 
-            // Redirigir al menú principal con acceso al contenido
+            // Crear nueva instancia de AppShell
             Application.Current.MainPage = new AppShell();
+
+            // Navegar explícitamente a la página de inicio
+            await Shell.Current.GoToAsync("//menuPrincipal/TabInicio");
         }
         else
         {

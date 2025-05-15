@@ -6,21 +6,59 @@
     xmlns:pages="clr-namespace:TFG.Pages"
     x:Class="TFG.AppShell">
 
-    <FlyoutItem Title="Menu">
-        <ShellContent Title="Salas"
-                        ContentTemplate="{DataTemplate views:MainPage}" />
-        <ShellContent Title="Historial"
-                        ContentTemplate="{DataTemplate pages:HistorialPage}" />
+    <Shell.FlyoutHeader>
+        <StackLayout Padding="10" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Label Text="Menú Principal"
+                    FontSize="20"
+                    HorizontalOptions="StartAndExpand" />
+            <Label x:Name="UsuarioLabel"
+                    Text="Usuario"
+                    HorizontalOptions="EndAndExpand"
+                    VerticalOptions="Center"
+                    FontSize="16"
+                    IsVisible="False" />
+        </StackLayout>
+    </Shell.FlyoutHeader>
+
+    <!-- Menú de navegación -->
+    <FlyoutItem Title="Menú Principal" IsVisible="True" x:Name="menuPrincipal" Route="menuPrincipal">
+        <!-- Contenido que se mostrará cuando los tabs estén ocultos -->
+        <ShellContent Route="default" ContentTemplate="{DataTemplate views:MainPage}" x:Name="DefaultContent" />
+
+        <!-- Página de Historial -->
+        <Tab Title="Historial" Icon="historial.png" IsVisible="False" x:Name="TabHistorial" Route="TabHistorial">
+            <ShellContent ContentTemplate="{DataTemplate pages:HistorialPage}" Route="historial" />
+        </Tab>
+
+        <!-- Página de inicio -->
+        <Tab Title="Inicio" Icon="inicio.png" IsVisible="False" x:Name="TabInicio" Route="TabInicio">
+            <ShellContent ContentTemplate="{DataTemplate views:MainPage}" Route="inicio" />
+        </Tab>
+
+        <!-- Página de Salas -->
+        <Tab Title="Salas" Icon="reserva.png" IsVisible="False" x:Name="TabSalas" Route="TabSalas">
+            <ShellContent ContentTemplate="{DataTemplate pages:SalasPage}" Route="salas" />
+        </Tab>
     </FlyoutItem>
 
-    <FlyoutItem Title="Login" >
-        <ShellContent Title="Login"
-                        ContentTemplate="{DataTemplate pages:LoginPage}" />
+    <FlyoutItem Title="Login" IsVisible="False" x:Name="LoginMenuItem" Route="login">
+        <ShellContent ContentTemplate="{DataTemplate pages:LoginPage}" Route="loginPage" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Register">
-        <ShellContent Title="Register"
-                 ContentTemplate="{DataTemplate pages:RegisterPage}" />
+    <FlyoutItem Title="Registrar" IsVisible="False" x:Name="RegisterMenuItem" Route="register">
+        <ShellContent ContentTemplate="{DataTemplate pages:RegisterPage}" Route="registerPage" />
     </FlyoutItem>
+
+    <!-- Aquí agregamos las páginas de contenido, pero las ocultamos si no está logueado -->
+    <FlyoutItem Title="Salas" IsVisible="False" x:Name="SalasMenuItem" Route="salasMenu">
+        <ShellContent ContentTemplate="{DataTemplate pages:SalasPage}" Route="salasPage" />
+    </FlyoutItem>
+
+    <!-- Footer -->
+    <Shell.FlyoutFooter>
+        <StackLayout Padding="10">
+            <Label Text="Acerca de la aplicacion" FontSize="12" HorizontalOptions="Center"/>
+        </StackLayout>
+    </Shell.FlyoutFooter>
 
 </Shell>

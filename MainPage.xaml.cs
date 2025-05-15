@@ -16,17 +16,7 @@ namespace TFG
             {
                 btnLogin.IsVisible = true;
                 btnRegister.IsVisible = true;
-                btnSalas.IsVisible = false;
             }
-            else
-            {
-                // Si ya está logueado, redirigir al menú hamburguesa
-                btnSalas.IsVisible = true;
-            }
-        }
-        private async void OnIrASalasClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Pages.SalasPage());
         }
         private async void OnLoginClicked(object sender, EventArgs e)
         {
