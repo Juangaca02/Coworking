@@ -10,7 +10,6 @@ namespace TFG.Models
         public int Capacidad { get; set; }
         public string Equipamiento { get; set; }
         public string Estado { get; set; } // Disponible, Ocupada, En Mantenimiento
-
         public string Imagen { get; set; }
     }
 }

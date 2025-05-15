@@ -14,7 +14,8 @@ namespace TFG.Services
         {
             _database = new SQLiteAsyncConnection(dbPath); // Inicializa la conexión con la base de datos
             _database.CreateTableAsync<Salas>().Wait();     // Crea la tabla Salas si no existe
-            _database.CreateTableAsync<Reservas>().Wait();  // Crea la tabla Reservas si no existe
+            _database.CreateTableAsync<Reservas>().Wait();
+            _database.CreateTableAsync<Usuario>().Wait();// Crea la tabla Reservas si no existe
         }
 
         // Método para obtener la instancia única del servicio
@@ -22,6 +23,23 @@ namespace TFG.Services
         {
             string dbPath = Path.Combine(FileSystem.AppDataDirectory, "salas.db"); // Ruta del archivo de base de datos
             return instance ??= new SalaServicio(dbPath); // Retorna la instancia, o la crea si no existe
+        }
+        /***************************************************************************
+        **************************************************************************** 
+        ---------------------------------USUARIOS-----------------------------------
+        ****************************************************************************
+        ***************************************************************************/
+
+        // Autenticación de usuario
+        public Task<Usuario> Autenticar(string nombreUsuario, string contraseña)
+        {
+            return _database.Table<Usuario>().FirstOrDefaultAsync(u => u.Nombre == nombreUsuario && u.Contrasena == contraseña);
+        }
+
+        // Registro de usuario
+        public async Task RegistrarUsuario(Usuario usuario)
+        {
+            await _database.InsertAsync(usuario);
         }
 
         /***************************************************************************

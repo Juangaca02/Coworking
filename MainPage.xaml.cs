@@ -10,13 +10,32 @@ namespace TFG
         public MainPage()
         {
             InitializeComponent();
-            BindingContext = new SalasViewModel();
+
+            // Mostrar los botones de login y registro si no está logueado
+            if (SesionActual.UsuarioLogueado == null)
+            {
+                btnLogin.IsVisible = true;
+                btnRegister.IsVisible = true;
+                btnSalas.IsVisible = false;
+            }
+            else
+            {
+                // Si ya está logueado, redirigir al menú hamburguesa
+                btnSalas.IsVisible = true;
+            }
         }
-        // Acción del botón para ir a la página de salas
         private async void OnIrASalasClicked(object sender, EventArgs e)
         {
-            // Navegar a la página de Salas (MainPage)
             await Navigation.PushAsync(new Pages.SalasPage());
+        }
+        private async void OnLoginClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginPage());
+        }
+
+        private async void OnRegisterClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RegisterPage());
         }
     }
 }

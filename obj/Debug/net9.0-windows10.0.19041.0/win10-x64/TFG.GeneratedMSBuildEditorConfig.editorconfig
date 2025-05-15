@@ -52,6 +52,18 @@ build_metadata.AdditionalFiles.ManifestResourceName = TFG.Pages.HistorialPage.xa
 build_metadata.AdditionalFiles.TargetPath = Pages\HistorialPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\HistorialPage.xaml
 
+[C:/Users/JUANAN/source/repos/Coworking/TFG/Pages/LoginPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = TFG.Pages.LoginPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\LoginPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\LoginPage.xaml
+
+[C:/Users/JUANAN/source/repos/Coworking/TFG/Pages/RegisterPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = TFG.Pages.RegisterPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\RegisterPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\RegisterPage.xaml
+
 [C:/Users/JUANAN/source/repos/Coworking/TFG/Pages/SalaDetailPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TFG.Pages.SalaDetailPage.xaml

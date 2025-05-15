@@ -127,6 +127,7 @@ public partial class CalendarPage : ContentPage
             }
         }
     }
+
 }
 
 //private void Button_Clicked(object sender, EventArgs e)

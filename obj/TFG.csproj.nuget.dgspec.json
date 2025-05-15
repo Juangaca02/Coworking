@@ -83,31 +83,35 @@
             },
             "Syncfusion.Maui.Calendar": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
             },
             "Syncfusion.Maui.Core": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
+            },
+            "Syncfusion.Maui.DataForm": {
+              "target": "Package",
+              "version": "[29.1.41, )"
             },
             "Syncfusion.Maui.Popup": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
             },
             "Syncfusion.Maui.Scheduler": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
             },
             "Syncfusion.Pdf.Imaging.Net.Core": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
             },
             "Syncfusion.Pdf.Net.Core": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
             },
             "Syncfusion.XlsIO.Net.Core": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
             },
             "itext7": {
               "target": "Package",
@@ -162,31 +166,35 @@
             },
             "Syncfusion.Maui.Calendar": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
             },
             "Syncfusion.Maui.Core": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
+            },
+            "Syncfusion.Maui.DataForm": {
+              "target": "Package",
+              "version": "[29.1.41, )"
             },
             "Syncfusion.Maui.Popup": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
             },
             "Syncfusion.Maui.Scheduler": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
             },
             "Syncfusion.Pdf.Imaging.Net.Core": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
             },
             "Syncfusion.Pdf.Net.Core": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
             },
             "Syncfusion.XlsIO.Net.Core": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
             },
             "itext7": {
               "target": "Package",
@@ -241,31 +249,35 @@
             },
             "Syncfusion.Maui.Calendar": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
             },
             "Syncfusion.Maui.Core": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
+            },
+            "Syncfusion.Maui.DataForm": {
+              "target": "Package",
+              "version": "[29.1.41, )"
             },
             "Syncfusion.Maui.Popup": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
             },
             "Syncfusion.Maui.Scheduler": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
             },
             "Syncfusion.Pdf.Imaging.Net.Core": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
             },
             "Syncfusion.Pdf.Net.Core": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
             },
             "Syncfusion.XlsIO.Net.Core": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
             },
             "itext7": {
               "target": "Package",
@@ -315,31 +327,35 @@
             },
             "Syncfusion.Maui.Calendar": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
             },
             "Syncfusion.Maui.Core": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
+            },
+            "Syncfusion.Maui.DataForm": {
+              "target": "Package",
+              "version": "[29.1.41, )"
             },
             "Syncfusion.Maui.Popup": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
             },
             "Syncfusion.Maui.Scheduler": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
             },
             "Syncfusion.Pdf.Imaging.Net.Core": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
             },
             "Syncfusion.Pdf.Net.Core": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
             },
             "Syncfusion.XlsIO.Net.Core": {
               "target": "Package",
-              "version": "[29.1.39, )"
+              "version": "[29.1.41, )"
             },
             "itext7": {
               "target": "Package",

@@ -6,19 +6,21 @@
     xmlns:pages="clr-namespace:TFG.Pages"
     x:Class="TFG.AppShell">
 
-    <!-- Menú de Hamburguesa -->
-    <FlyoutItem Title="Menu" Icon="hamburger_icon.png">
-        <Tab>
-            <!-- Pestaña de Salas -->
-            <ShellContent Title="Salas" Icon="salas_icon.png">
-                <views:MainPage />
-            </ShellContent>
+    <FlyoutItem Title="Menu">
+        <ShellContent Title="Salas"
+                        ContentTemplate="{DataTemplate views:MainPage}" />
+        <ShellContent Title="Historial"
+                        ContentTemplate="{DataTemplate pages:HistorialPage}" />
+    </FlyoutItem>
 
-            <!-- Pestaña de Historial -->
-            <ShellContent Title="Historial" Icon="historial_icon.png">
-                <pages:HistorialPage />
-            </ShellContent>
-        </Tab>
+    <FlyoutItem Title="Login" >
+        <ShellContent Title="Login"
+                        ContentTemplate="{DataTemplate pages:LoginPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Register">
+        <ShellContent Title="Register"
+                 ContentTemplate="{DataTemplate pages:RegisterPage}" />
     </FlyoutItem>
 
 </Shell>

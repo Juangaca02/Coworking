@@ -1,3 +1,4 @@
+using AndroidX.ConstraintLayout.Core;
 using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
@@ -91,6 +92,7 @@ namespace TFG.Pages
                                 table.AddCell(nombreSala);  // Nombre de la sala
                                 table.AddCell(reserva.Fecha.ToString("yyyy-MM-dd"));
                                 table.AddCell(reserva.Hora);
+                                document.Add(new Paragraph($"Marca: {nombreSala}, Modelo: {reserva.Fecha.ToString("yyyy-MM-dd")}, Año: {reserva.Hora}"));
                             }
 
                             await Shell.Current.DisplayAlert("Exito", "Informe PDF generado", "ok");

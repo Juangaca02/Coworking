@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TFG.ViewModel"
+             x:Class="TFG.Pages.LoginPage"
+             Title="LoginPage">
+    <VerticalStackLayout Padding="30" Spacing="20">
+
+        <Label Text="Usuario" FontSize="Medium"/>
+        <Entry x:Name="usuarioEntry" Placeholder="Nombre de usuario"/>
+
+        <Label Text="Contraseña" FontSize="Medium"/>
+        <Entry x:Name="contraseñaEntry" Placeholder="Contraseña" IsPassword="True"/>
+
+        <Button Text="Iniciar Sesión" Clicked="IniciarSesion_Clicked" BackgroundColor="#4CAF50" TextColor="White"/>
+
+        <Button Text="Registrarse" Clicked="IrARegistro_Clicked" BackgroundColor="#2196F3" TextColor="White"/>
+    </VerticalStackLayout>
+</ContentPage>

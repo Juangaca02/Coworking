@@ -17,6 +17,12 @@
     <MauiXaml Update="Pages\HistorialPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Pages\LoginPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Pages\RegisterPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Pages\SalaDetailPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
