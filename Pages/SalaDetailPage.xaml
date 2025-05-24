@@ -5,17 +5,27 @@
              Title="Detalles de la Sala">
     <ScrollView>
         <StackLayout Padding="20" Spacing="15">
-            <Image Source="{Binding Imagen}" HeightRequest="200" Aspect="AspectFill"/>
+            <Image Source="{Binding Imagen}" HeightRequest="150" Aspect="AspectFill"/>
             <Label Text="{Binding Nombre}" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center"/>
-            <Label Text="Capacidad:" FontAttributes="Bold"/>
-            <Label Text="{Binding Capacidad}" />
+
+            <!-- Capacidad en línea -->
+            <HorizontalStackLayout Spacing="5">
+                <Label Text="Capacidad:" FontAttributes="Bold"/>
+                <Label Text="{Binding Capacidad}"/>
+            </HorizontalStackLayout>
+
+            <!-- Equipamiento como lista -->
             <Label Text="Equipamiento:" FontAttributes="Bold"/>
-            <Label Text="{Binding Equipamiento}" />
+            <Label Text="{Binding EquipamientoTexto}"/>
+
             <!-- Botón de reservar -->
-            <Button Text="Reservar" BackgroundColor="#4CAF50" TextColor="White" HorizontalOptions="Center" VerticalOptions="End" 
+            <HorizontalStackLayout Spacing="5" HorizontalOptions="Center">
+                <Button Text="Reservar" BackgroundColor="#4CAF50" TextColor="White" HorizontalOptions="Center" VerticalOptions="End" 
                     Clicked="Reservar_Clicked"/>
-            <Button Text="Eliminar" BackgroundColor="Red" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"
+                <Button Text="Eliminar" BackgroundColor="Red" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"
                     Clicked="Eliminar_Clicked"/>
+            </HorizontalStackLayout>
+
         </StackLayout>
     </ScrollView>
 

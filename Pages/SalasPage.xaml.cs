@@ -16,7 +16,7 @@ public partial class SalasPage : ContentPage
     {
         var searchText = e.NewTextValue.ToLower();
         var filteredSalas = ((SalasViewModel)BindingContext).SalasDisponibles
-            .Where(s => s.Nombre.ToLower().Contains(searchText) || s.Equipamiento.ToLower().Contains(searchText) ||
+            .Where(s => s.Nombre.ToLower().Contains(searchText) || s.Equipamiento.Any(eq => eq.ToLower().Contains(searchText)) ||
             s.Capacidad.ToString().Contains(searchText))
             .ToList();
         salasCollectionView.ItemsSource = filteredSalas;

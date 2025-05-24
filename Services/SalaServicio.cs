@@ -15,13 +15,13 @@ namespace TFG.Services
             _database = new SQLiteAsyncConnection(dbPath); // Inicializa la conexión con la base de datos
             _database.CreateTableAsync<Salas>().Wait();     // Crea la tabla Salas si no existe
             _database.CreateTableAsync<Reservas>().Wait();
-            _database.CreateTableAsync<Usuario>().Wait();// Crea la tabla Reservas si no existe
+            _database.CreateTableAsync<Usuarios>().Wait();// Crea la tabla Reservas si no existe
         }
 
         // Método para obtener la instancia única del servicio
         public static SalaServicio GetInstancia()
         {
-            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "salas.db"); // Ruta del archivo de base de datos
+            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "salas1.db"); // Ruta del archivo de base de datos
             return instance ??= new SalaServicio(dbPath); // Retorna la instancia, o la crea si no existe
         }
         /***************************************************************************
@@ -31,13 +31,13 @@ namespace TFG.Services
         ***************************************************************************/
 
         // Autenticación de usuario
-        public Task<Usuario> Autenticar(string nombreUsuario, string contraseña)
+        public Task<Usuarios> Autenticar(string nombreUsuario, string contraseña)
         {
-            return _database.Table<Usuario>().FirstOrDefaultAsync(u => u.Nombre == nombreUsuario && u.Contrasena == contraseña);
+            return _database.Table<Usuarios>().FirstOrDefaultAsync(u => u.Nombre == nombreUsuario && u.Contrasena == contraseña);
         }
 
         // Registro de usuario
-        public async Task RegistrarUsuario(Usuario usuario)
+        public async Task RegistrarUsuario(Usuarios usuario)
         {
             await _database.InsertAsync(usuario);
         }
@@ -106,19 +106,34 @@ namespace TFG.Services
                 .Where(r => r.Fecha >= fechaInicio && r.Fecha <= fechaFin)
                 .ToListAsync();
         }
+        // Obtiene todas las reservas sin filtro
+        public async Task<List<Reservas>> ObtenerTodasLasReservas()
+        {
+            return await _database.Table<Reservas>().ToListAsync();
+        }
 
-        // Inicializa la base de datos con datos de ejemplo si aún no hay salas registradas
+        // Obtiene el nombre del usuario por su ID
+        public async Task<string> ObtenerNombreUsuarioPorId(int usuarioId)
+        {
+            var usuario = await _database.Table<Usuarios>().Where(u => u.Id == usuarioId).FirstOrDefaultAsync();
+            return usuario?.Nombre ?? "Usuario desconocido";
+        }
+
+        /****************************************************************************
+        *****************************************************************************
+        ------------------------INICIALIZACIÓN RESERVAS------------------------------
+        *****************************************************************************
+        ****************************************************************************/
         public async Task InicializarDatos()
         {
             if ((await ObtenerTodasLasSalas()).Count == 0)
             {
                 var listaInicial = new List<Salas>
                 {
-                    new() { Nombre = "Sala 1", Capacidad = 10, Equipamiento = "Proyector", Estado = "Disponible", Imagen = "dotnet_bot.png" },
-                    new() { Nombre = "Sala 2", Capacidad = 20, Equipamiento = "Pantalla", Estado = "Disponible", Imagen = "dotnet_bot.png" },
-                    new() { Nombre = "Sala 3", Capacidad = 15, Equipamiento = "Televisor", Estado = "Ocupada", Imagen = "dotnet_bot.png" },
-                    new() { Nombre = "Sala 4", Capacidad = 12, Equipamiento = "Proyector", Estado = "Disponible", Imagen = "dotnet_bot.png" },
-                    new() { Nombre = "Sala 5", Capacidad = 18, Equipamiento = "Pantalla", Estado = "Disponible", Imagen = "dotnet_bot.png" }
+                    new() { Nombre = "Sala 1", Capacidad = 10, Equipamiento = new List<string> { "Proyector", "Pizarra" }, Estado = "Disponible", Imagen = "dotnet_bot.png" },
+                    new() { Nombre = "Sala 2", Capacidad = 10, Equipamiento = new List<string> { "Proyector" }, Estado = "Disponible", Imagen = "dotnet_bot.png" },
+                    new() { Nombre = "Sala 3", Capacidad = 10, Equipamiento = new List<string> { "Pizarra" }, Estado = "Disponible", Imagen = "dotnet_bot.png" },
+                    new() { Nombre = "Sala 4", Capacidad = 10, Equipamiento = new List<string> { "Proyector", "Pizarra" }, Estado = "Disponible", Imagen = "dotnet_bot.png" },
                 };
 
                 foreach (var sala in listaInicial)

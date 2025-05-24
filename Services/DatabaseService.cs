@@ -26,11 +26,11 @@ namespace TFG.Services
             {
                 await _database.InsertAllAsync(new List<Salas>
                 {
-                    new Salas { Nombre = "Sala 1", Capacidad = 10, Equipamiento = "Proyector", Estado = "Disponible", Imagen = "dotnet_bot.png" },
-                    new Salas { Nombre = "Sala 2", Capacidad = 20, Equipamiento = "Pantalla", Estado = "Disponible", Imagen = "dotnet_bot.png" },
-                    new Salas { Nombre = "Sala 3", Capacidad = 15, Equipamiento = "Televisor", Estado = "Ocupada", Imagen = "dotnet_bot.png" },
-                    new Salas { Nombre = "Sala 4", Capacidad = 12, Equipamiento = "Proyector", Estado = "Disponible", Imagen = "dotnet_bot.png" },
-                    new Salas { Nombre = "Sala 5", Capacidad = 18, Equipamiento = "Pantalla", Estado = "Disponible", Imagen = "dotnet_bot.png" }
+                    new Salas { Nombre = "Sala 1", Capacidad = 10, Equipamiento = new List<string> { "Proyector", "Pizarra" }, Estado = "Disponible", Imagen = "dotnet_bot.png" },
+                    new Salas { Nombre = "Sala 2", Capacidad = 20, Equipamiento = new List<string> { "Proyector", "Pizarra" }, Estado = "Disponible", Imagen = "dotnet_bot.png" },
+                    new Salas { Nombre = "Sala 3", Capacidad = 15, Equipamiento = new List < string > { "Proyector", "Pizarra" }, Estado = "Ocupada", Imagen = "dotnet_bot.png" },
+                    new Salas { Nombre = "Sala 4", Capacidad = 12, Equipamiento = new List < string > { "Proyector", "Pizarra" }, Estado = "Disponible", Imagen = "dotnet_bot.png" },
+                    new Salas { Nombre = "Sala 5", Capacidad = 18, Equipamiento = new List < string > { "Proyector", "Pizarra" }, Estado = "Disponible", Imagen = "dotnet_bot.png" }
                 });
             }
         }

@@ -16,6 +16,8 @@ namespace TFG
             Routing.RegisterRoute("salas", typeof(SalasPage));
             Routing.RegisterRoute("login", typeof(LoginPage));
             Routing.RegisterRoute("register", typeof(RegisterPage));
+            Routing.RegisterRoute("calendar", typeof(CalendarPage));
+            Routing.RegisterRoute(nameof(SalaDetailPage), typeof(SalaDetailPage));
 
             // Verificar si el usuario está logueado
             if (SesionActual.UsuarioLogueado == null)

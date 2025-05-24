@@ -17,6 +17,10 @@ namespace TFG
                 btnLogin.IsVisible = true;
                 btnRegister.IsVisible = true;
             }
+            else
+            {
+                lblInfo.IsVisible = true;
+            }
         }
         private async void OnLoginClicked(object sender, EventArgs e)
         {

@@ -30,7 +30,8 @@ public partial class SalaDetailPage : ContentPage
         if (BindingContext is Salas sala)
         {
             // Navegar a la página de Calendar pasando la sala como parámetro
-            await Navigation.PushAsync(new CalendarPage(sala));
+            //await Shell.Current.GoToAsync($"{nameof(CalendarPage)}?SalaId={sala.Id}");
+            await Shell.Current.GoToAsync($"calendar?SalaId={sala.Id}");
         }
     }
 }

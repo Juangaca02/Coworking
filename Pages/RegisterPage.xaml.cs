@@ -29,11 +29,26 @@ public partial class RegisterPage : ContentPage
             return;
         }
 
-        var nuevoUsuario = new Usuario { Nombre = usuario, Email = gmail, Contrasena = contraseña };
+        var nuevoUsuario = new Usuarios { Nombre = usuario, Email = gmail, Contrasena = contraseña };
         var servicio = SalaServicio.GetInstancia();
         await servicio.RegistrarUsuario(nuevoUsuario);
+        var usuarioAutenticado = await servicio.Autenticar(usuario, contraseña);
 
-        await DisplayAlert("Éxito", "Usuario registrado correctamente", "OK");
-        await Navigation.PopAsync(); // Vuelve al login
+        if (usuarioAutenticado != null)
+        {
+            await DisplayAlert("Éxito", "Usuario registrado correctamente", "OK");
+            SesionActual.UsuarioLogueado = usuarioAutenticado;
+
+            // Crear nueva instancia de AppShell
+            Application.Current.MainPage = new AppShell();
+
+            // Navegar explícitamente a la página de inicio
+            await Shell.Current.GoToAsync("//menuPrincipal/TabInicio");
+        }
+        else
+        {
+            await DisplayAlert("Error", "Usuario o contraseña incorrectos", "OK");
+        }
     }
+
 }

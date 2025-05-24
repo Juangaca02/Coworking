@@ -8,6 +8,6 @@ namespace TFG.Models
 {
     public class SesionActual
     {
-        public static Usuario UsuarioLogueado { get; set; }
+        public static Usuarios UsuarioLogueado { get; set; }
     }
 }

@@ -6,54 +6,92 @@
              xmlns:popup="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup"
              x:Class="TFG.Pages.CalendarPage"
              Title="Calendario de Reservas">
-
+    <!--
+    <ContentPage.Resources> 
+        <Style x:Key="ButtonHorarioStyle" TargetType="Button">
+            <Setter Property="BorderColor" Value="#6200ee"/>
+            <Setter Property="CornerRadius" Value="45"/>
+            <Setter Property="BorderWidth" Value="2"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Disabled">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="LightGray"/>
+                                <Setter Property="TextColor" Value="DarkGray"/>
+                                <Setter Property="BorderColor" Value="LightGray"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+-->
     <VerticalStackLayout>
-        <Label x:Name="lblSalaCapacidad" Text="Capacidad:" FontAttributes="Bold" />
-        <Label x:Name="lblSalaEquipamiento" Text="Equipamiento:" FontAttributes="Bold" />
-        <calendar:SfCalendar x:Name="calendar_reservas" 
+        <Label x:Name="lblSalaCapacidad" Text="Capacidad:" IsVisible="False"/>
+        <Label x:Name="lblSalaEquipamiento" Text="Equipamiento:" IsVisible="False"/>
+
+        <calendar:SfCalendar x:Name="calendar_reservas"
+                        EnablePastDates="False"
                         SelectionMode="Single"
                         HeightRequest="200"
+                        Margin="10,5,10,5"
                         SelectionChanged="OnCalendarSelectionChanged"
                         View="Month">
             <calendar:SfCalendar.MonthView>
-                <calendar:CalendarMonthView NumberOfVisibleWeeks="3" FirstDayOfWeek="Monday"/>
+                <calendar:CalendarMonthView NumberOfVisibleWeeks="3" FirstDayOfWeek="Monday" />
             </calendar:SfCalendar.MonthView>
         </calendar:SfCalendar>
 
         <FlexLayout
             x:Name="flexLayout"
-            AlignItems="Center"
-            HorizontalOptions="Center"
             JustifyContent="SpaceAround"
-            VerticalOptions="Center"
+            HorizontalOptions="Center"
             Wrap="Wrap">
             <FlexLayout.Resources>
+                <!-- Estilo para los botones (fallo al iniciar)-->
                 <Style TargetType="Button">
                     <Setter Property="TextColor" Value="Black" />
                     <Setter Property="BackgroundColor" Value="White" />
+                    <Setter Property="CornerRadius" Value="45" />
+                    <Setter Property="BorderWidth" Value="2" />
+                    <Setter Property="Margin" Value="2" />
                 </Style>
             </FlexLayout.Resources>
+            <Button Clicked="SlotBooking_Change" Text="08:00 AM" />
             <Button Clicked="SlotBooking_Change" Text="09:00 AM" />
-            <Button Clicked="SlotBooking_Change" Text="09:30 AM" />
             <Button Clicked="SlotBooking_Change" Text="10:00 AM" />
-            <Button Clicked="SlotBooking_Change" Text="10:30 AM" />
             <Button Clicked="SlotBooking_Change" Text="11:00 AM" />
-            <Button Clicked="SlotBooking_Change" Text="11:30 AM" />
             <Button Clicked="SlotBooking_Change" Text="12:00 PM" />
-            <Button Clicked="SlotBooking_Change" Text="02:00 PM" />
-            <Button Clicked="SlotBooking_Change" Text="02:30 PM" />
-            <Button Clicked="SlotBooking_Change" Text="03:00 PM" />
-            <Button Clicked="SlotBooking_Change" Text="03:30 PM" />
-            <Button Clicked="SlotBooking_Change" Text="04:00 PM" />
-
+            <Button Clicked="SlotBooking_Change" Text="13:00 PM" />
+            <Button Clicked="SlotBooking_Change" Text="14:00 PM" />
+            <Button Clicked="SlotBooking_Change" Text="15:00 PM" />
+            <Button Clicked="SlotBooking_Change" Text="16:00 PM" />
+            <Button Clicked="SlotBooking_Change" Text="17:00 PM" />
+            <Button Clicked="SlotBooking_Change" Text="18:00 PM" />
+            <Button Clicked="SlotBooking_Change" Text="19:00 PM" />
         </FlexLayout>
 
-        <Button BackgroundColor="MediumPurple"
-                Text="Reservar"
-                Clicked="Button_Clicked"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                WidthRequest="150"/>
+        <HorizontalStackLayout HorizontalOptions="Center" >
+            <Button BackgroundColor="PaleVioletRed"
+                    Margin="0,10,20,0"
+                    Text="Volver"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="75"
+                    Clicked="Volver_Clicked"/>
+            <Button BackgroundColor="MediumPurple"
+                    Margin="0,10,0,0"
+                    Text="Reservar horario"
+                    Clicked="Button_Clicked"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="150"/>
+        </HorizontalStackLayout>
+
 
         <popup:SfPopup
             x:Name="appointmentPopup"
@@ -73,4 +111,5 @@
         </popup:SfPopup>
 
     </VerticalStackLayout>
+
 </ContentPage>

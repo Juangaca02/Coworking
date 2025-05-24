@@ -1,24 +1,52 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TFG.Pages.HistorialPage"
-             Title="Historial">
+             BackgroundColor="White">
 
-    <StackLayout Padding="10">
-        <!-- Selector de rango de fechas -->
-        <Label Text="Selecciona un rango de fechas:" FontSize="18" />
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-            <Label Text="Desde: " VerticalOptions="Center" />
-            <DatePicker x:Name="datePickerDesde" />
-            <Label Text="Hasta: " VerticalOptions="Center" />
-            <DatePicker x:Name="datePickerHasta" />
-        </StackLayout>
+    <Grid RowDefinitions="Auto,*">
 
-        <!-- Opción para seleccionar formato -->
-        <Label Text="Elige el formato de exportación:" FontSize="18" />
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-            <Button Text="Excel" Clicked="OnExcelClicked" />
-            <Button Text="PDF" Clicked="OnPdfClicked" />
-        </StackLayout>
-    </StackLayout>
+        <VerticalStackLayout Padding="0,0,20,0" Grid.Row="0" BackgroundColor="White">
+            <SearchBar x:Name="searchBar"
+                        Placeholder="Buscar por nombre de sala..."
+                        TextChanged="OnSearchBarTextChanged" />
+        </VerticalStackLayout>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20" Spacing="15"
+                                HorizontalOptions="Center"
+                                WidthRequest="{Binding Source={x:Reference scrollHost}, Path=Width, Converter={StaticResource WidthPaddingConverter}}">
+
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Desde:" Margin="0,12,0,0" />
+                    <DatePicker x:Name="datePickerDesde" DateSelected="OnDateRangeChanged" />
+                    <Label Text="Hasta:" Margin="0,12,0,0" />
+                    <DatePicker x:Name="datePickerHasta" DateSelected="OnDateRangeChanged" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="20">
+                    <Button Text="Generar PDF" x:Name="btnPdf" Clicked="OnPdfClicked" WidthRequest="150" />
+                </HorizontalStackLayout>
+
+                <CollectionView x:Name="tablaReservas"
+                                HorizontalOptions="FillAndExpand">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10" ColumnDefinitions="*,*,*">
+                                <Label Text="{Binding SalaNombre}" Grid.Column="0" />
+                                <Label Text="{Binding FechaHora}" Grid.Column="1" />
+                                <Label Text="{Binding UsuarioNombre}" Grid.Column="2" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <Label x:Name="mensajeVacio"
+                       Text="No hay salas disponibles."
+                       TextColor="Red"
+                       HorizontalOptions="Center"
+                       IsVisible="False" />
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>

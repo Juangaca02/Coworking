@@ -38,7 +38,7 @@
                                     <Label Grid.Column="0" Grid.Row="2" Text="{Binding Capacidad}" />
                                     <Label Grid.Column="1" Grid.Row="1" Text="Estado:" FontAttributes="Bold"/>
                                     <Label Grid.Column="1" Grid.Row="2" Text="{Binding Estado}" />
-                                    <Label Grid.ColumnSpan="2" Grid.Row="3" Text="{Binding Equipamiento}" FontSize="14" Margin="0,5,0,0"/>
+                                    <Label Grid.ColumnSpan="2" Grid.Row="3" Text="{Binding EquipamientoTexto}" FontSize="14" Margin="0,5,0,0"/>
                                     <Button Grid.Column="1" Grid.Row="4" 
                                     Text="Ver Reservas"
                                     HorizontalOptions="End"

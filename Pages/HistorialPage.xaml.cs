@@ -1,7 +1,8 @@
-using AndroidX.ConstraintLayout.Core;
 using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
+using OfficeOpenXml.Style;
+using OfficeOpenXml;
 using TFG.Models;
 using TFG.Services;
 namespace TFG.Pages
@@ -9,47 +10,138 @@ namespace TFG.Pages
     public partial class HistorialPage : ContentPage
     {
         private readonly SalaServicio _SalaServicio;
+        private List<object> reservasOriginales;
+
         public HistorialPage()
         {
             InitializeComponent();
             _SalaServicio = SalaServicio.GetInstancia();
+            CargarHistorialVisual();
         }
 
-        // Manejar la acción de generar historial en Excel
+        private async void CargarHistorialVisual()
+        {
+            var reservas = await _SalaServicio.ObtenerTodasLasReservas();
+            reservasOriginales = new List<object>();
+
+            foreach (var reserva in reservas)
+            {
+                string usuarioNombre = await _SalaServicio.ObtenerNombreUsuarioPorId(reserva.UsuarioId);
+                string salaNombre = await _SalaServicio.ObtenerNombreSalaPorId(reserva.SalaId);
+                string fechaHora = $"{reserva.Fecha:dd/MM/yy} - {reserva.Hora}";
+
+                reservasOriginales.Add(new
+                {
+                    UsuarioNombre = usuarioNombre,
+                    SalaNombre = salaNombre,
+                    Fecha = reserva.Fecha,
+                    Hora = reserva.Hora,
+                    FechaHora = fechaHora
+                });
+            }
+
+            AplicarFiltros();
+        }
+
+        private void OnSearchBarTextChanged(object sender, TextChangedEventArgs e)
+        {
+            AplicarFiltros();
+        }
+
+        private void OnDateRangeChanged(object sender, DateChangedEventArgs e)
+        {
+            AplicarFiltros();
+        }
+
+        private void AplicarFiltros()
+        {
+            var filtroTexto = searchBar.Text?.ToLower() ?? string.Empty;
+            var desde = datePickerDesde.Date;
+            var hasta = datePickerHasta.Date;
+
+            var filtradas = reservasOriginales
+                .Where(r =>
+                {
+                    var reserva = (dynamic)r;
+                    bool coincideTexto = reserva.SalaNombre.ToLower().Contains(filtroTexto);
+                    bool enRango = reserva.Fecha >= desde && reserva.Fecha <= hasta;
+                    return coincideTexto && enRango;
+                })
+                .ToList();
+
+            tablaReservas.ItemsSource = filtradas;
+            mensajeVacio.IsVisible = filtradas.Count == 0;
+            btnPdf.IsEnabled = filtradas.Count > 0;
+        }
+
         private void OnExcelClicked(object sender, EventArgs e)
         {
-            // Aquí llamarás al servicio para generar el historial en Excel
             string desde = datePickerDesde.Date.ToString("yyyy-MM-dd");
             string hasta = datePickerHasta.Date.ToString("yyyy-MM-dd");
-
-            // Lógica para generar el archivo Excel con el rango seleccionado
             GenerateExcelReport(desde, hasta);
         }
 
-        // Manejar la acción de generar historial en PDF
-
-        private async void OnPdfClicked(object sender, EventArgs e)
+        private async void GenerateExcelReport(string desde, string hasta)
         {
+            try
+            {
+                var servicio = SalaServicio.GetInstancia();
+                var reservas = await servicio.ObtenerReservasEntreFechas(datePickerDesde.Date, datePickerHasta.Date);
+
+                if (reservas.Count == 0)
+                {
+                    await DisplayAlert("Sin Reservas", "No hay reservas para este rango de fechas.", "OK");
+                    return;
+                }
+
+                var filePath = Path.Combine(FileSystem.CacheDirectory, "HistorialReserva.xlsx");
+                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+                using (var package = new ExcelPackage())
+                {
+                    var sheet = package.Workbook.Worksheets.Add("Historial");
+                    sheet.Cells[1, 1].Value = "Sala";
+                    sheet.Cells[1, 2].Value = "Fecha";
+                    sheet.Cells[1, 3].Value = "Hora";
+
+                    using (var range = sheet.Cells[1, 1, 1, 3])
+                    {
+                        range.Style.Font.Bold = true;
+                        range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    }
+
+                    int row = 2;
+                    foreach (var reserva in reservas)
+                    {
+                        string salaNombre = await _SalaServicio.ObtenerNombreSalaPorId(reserva.SalaId);
+                        sheet.Cells[row, 1].Value = salaNombre;
+                        sheet.Cells[row, 2].Value = reserva.Fecha.ToString("yyyy-MM-dd");
+                        sheet.Cells[row, 3].Value = reserva.Hora;
+                        row++;
+                    }
+
+                    sheet.Cells.AutoFitColumns();
+                    File.WriteAllBytes(filePath, package.GetAsByteArray());
+                }
+
+                await Shell.Current.DisplayAlert("Éxito", "Informe Excel generado", "OK");
+                await Launcher.OpenAsync(new OpenFileRequest { File = new ReadOnlyFile(filePath) });
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", "No se pudo generar el archivo Excel: " + ex.Message, "OK");
+            }
+        }
+
+        private void OnPdfClicked(object sender, EventArgs e)
+        {
+            var datosFiltrados = ((List<object>)tablaReservas.ItemsSource).Cast<dynamic>().ToList();
             string desde = datePickerDesde.Date.ToString("yyyy-MM-dd");
             string hasta = datePickerHasta.Date.ToString("yyyy-MM-dd");
-
-            // Obtener las reservas entre las fechas seleccionadas
-            var servicio = SalaServicio.GetInstancia();
-            List<Reservas> listReservas = await servicio.ObtenerReservasEntreFechas(datePickerDesde.Date, datePickerHasta.Date);
-
-            // Lógica para generar el archivo PDF con el rango seleccionado
-            GeneratePdfReport(listReservas, desde, hasta);
+            GeneratePdfReport(datosFiltrados, desde, hasta);
         }
 
-        // Lógica para generar reporte Excel (puedes usar librerías como NPOI o EPPlus)
-        private void GenerateExcelReport(string desde, string hasta)
-        {
-
-        }
-
-        // Lógica para generar reporte PDF con las reservas
-        // Lógica para generar reporte PDF con las reservas
-        private async void GeneratePdfReport(List<Reservas> reservas, string desde, string hasta)
+        private async void GeneratePdfReport(List<dynamic> reservas, string desde, string hasta)
         {
             try
             {
@@ -59,56 +151,35 @@ namespace TFG.Pages
                     return;
                 }
 
-                // Crear el documento PDF
                 string pdfPath = Path.Combine(FileSystem.CacheDirectory, "HistorialReserva.pdf");
-                //Para crear un PDF necesitamos 3 clases diferentesPDFWriter, PDFDocument y el Document
                 using (PdfWriter writer = new PdfWriter(pdfPath))
+                using (PdfDocument pdf = new PdfDocument(writer))
+                using (Document document = new Document(pdf))
                 {
-                    using (PdfDocument pdf = new PdfDocument(writer))
+                    document.Add(new Paragraph("Historial de Reservas"));
+                    document.Add(new Paragraph($"Desde: {desde} Hasta: {hasta}"));
+                    document.Add(new Paragraph("\n"));
+
+                    Table table = new Table(3);
+                    table.AddHeaderCell("Sala");
+                    table.AddHeaderCell("Fecha");
+                    table.AddHeaderCell("Hora");
+
+                    foreach (var reserva in reservas)
                     {
-                        using (Document document = new Document(pdf))
-                        {
-                            // Título del documento
-                            document.Add(new Paragraph("Historial de Reservas"));
-
-                            // Agregar el rango de fechas seleccionado
-                            document.Add(new Paragraph($"Desde: {desde} Hasta: {hasta}"));
-                            document.Add(new Paragraph("\n"));
-
-                            // Crear la tabla con los datos de las reservas
-                            Table table = new Table(3); // Tres columnas: Sala, Fecha, Hora
-
-                            // Cabecera de la tabla
-                            table.AddHeaderCell("Sala");
-                            table.AddHeaderCell("Fecha");
-                            table.AddHeaderCell("Hora");
-
-                            foreach (var reserva in reservas)
-                            {
-                                // Obtener el nombre de la sala desde la base de datos
-                                string nombreSala = await _SalaServicio.ObtenerNombreSalaPorId(reserva.SalaId);
-
-                                // Añadir los datos a la tabla
-                                table.AddCell(nombreSala);  // Nombre de la sala
-                                table.AddCell(reserva.Fecha.ToString("yyyy-MM-dd"));
-                                table.AddCell(reserva.Hora);
-                                document.Add(new Paragraph($"Marca: {nombreSala}, Modelo: {reserva.Fecha.ToString("yyyy-MM-dd")}, Año: {reserva.Hora}"));
-                            }
-
-                            await Shell.Current.DisplayAlert("Exito", "Informe PDF generado", "ok");
-
-                            //Vamos a abrir el pdf con un visualizador predeterminado
-                            await Launcher.OpenAsync(new OpenFileRequest
-                            {
-                                File = new ReadOnlyFile(pdfPath)
-                            });
-                        }
+                        table.AddCell(reserva.SalaNombre);
+                        table.AddCell(reserva.Fecha.ToString("yyyy-MM-dd"));
+                        table.AddCell(reserva.Hora);
                     }
+
+                    document.Add(table);
+
+                    await Shell.Current.DisplayAlert("Éxito", "Informe PDF generado", "OK");
+                    await Launcher.OpenAsync(new OpenFileRequest { File = new ReadOnlyFile(pdfPath) });
                 }
             }
             catch (Exception ex)
             {
-                // Manejo de errores
                 DisplayAlert("Error", $"Hubo un problema al generar el archivo PDF: {ex.Message}", "OK");
             }
         }
@@ -117,12 +188,10 @@ namespace TFG.Pages
         {
             try
             {
-                // Intentar abrir el archivo PDF con la aplicación predeterminada
                 await Launcher.OpenAsync(new Uri(filePath));
             }
             catch (Exception ex)
             {
-                // Manejar el error si no se puede abrir el archivo
                 DisplayAlert("Error", "No se pudo abrir el archivo: " + ex.Message, "OK");
             }
         }
