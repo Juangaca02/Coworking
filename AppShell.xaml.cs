@@ -17,7 +17,10 @@ namespace TFG
             Routing.RegisterRoute("login", typeof(LoginPage));
             Routing.RegisterRoute("register", typeof(RegisterPage));
             Routing.RegisterRoute("calendar", typeof(CalendarPage));
+            Routing.RegisterRoute("salaDetail", typeof(SalaDetailPage));
+            Routing.RegisterRoute("ajustesPage", typeof(AjustesPage));
             Routing.RegisterRoute(nameof(SalaDetailPage), typeof(SalaDetailPage));
+
 
             // Verificar si el usuario está logueado
             if (SesionActual.UsuarioLogueado == null)
@@ -32,12 +35,21 @@ namespace TFG
                 TabHistorial.IsVisible = false;
                 TabInicio.IsVisible = false;
                 TabSalas.IsVisible = false;
+                SalasAjustesUsuario.IsVisible = false;
 
                 // No mostrar el nombre de usuario en la cabecera
                 UsuarioLabel.IsVisible = false;
             }
             else
             {
+                if (SesionActual.UsuarioLogueado.Admin == 1)
+                {
+                    TabHistorial.IsVisible = false;
+                }
+                else
+                {
+                    TabHistorial.IsVisible = true;
+                }
                 // Si el usuario está logueado, ocultar las opciones de login y registro
                 LoginMenuItem.IsVisible = false;
                 RegisterMenuItem.IsVisible = false;
@@ -47,6 +59,7 @@ namespace TFG
                 TabHistorial.IsVisible = true;
                 TabInicio.IsVisible = true;
                 TabSalas.IsVisible = true;
+                SalasAjustesUsuario.IsVisible = true;
 
                 // Mostrar el nombre de usuario en la cabecera
                 UsuarioLabel.IsVisible = true;

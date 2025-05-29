@@ -21,7 +21,13 @@ namespace TFG.Pages
 
         private async void CargarHistorialVisual()
         {
+            //List<Reservas> reservas;
             var reservas = await _SalaServicio.ObtenerTodasLasReservas();
+            if (SesionActual.UsuarioLogueado.Admin != 1)
+            {
+                reservas = await _SalaServicio.ObtenerReservasPorUsuario(SesionActual.UsuarioLogueado.Id);
+            }
+
             reservasOriginales = new List<object>();
 
             foreach (var reserva in reservas)
@@ -63,7 +69,7 @@ namespace TFG.Pages
                 .Where(r =>
                 {
                     var reserva = (dynamic)r;
-                    bool coincideTexto = reserva.SalaNombre.ToLower().Contains(filtroTexto);
+                    bool coincideTexto = reserva.SalaNombre.ToLower().Contains(filtroTexto) || reserva.UsuarioNombre.ToLower().Contains(filtroTexto);
                     bool enRango = reserva.Fecha >= desde && reserva.Fecha <= hasta;
                     return coincideTexto && enRango;
                 })

@@ -54,6 +54,10 @@
         <ShellContent ContentTemplate="{DataTemplate pages:SalasPage}" Route="salasPage" />
     </FlyoutItem>
 
+    <FlyoutItem Title="Ajustes" IsVisible="True" x:Name="SalasAjustesUsuario" Route="ajustesUsuario">
+        <ShellContent ContentTemplate="{DataTemplate pages:AjustesPage}" Route="ajustesPage" />
+    </FlyoutItem>
+
     <!-- Footer -->
     <Shell.FlyoutFooter>
         <StackLayout Padding="10">

@@ -1,0 +1,31 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TFG.Pages.AjustesPage"
+             Title="Ajustes de Usuario">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <VerticalStackLayout  Padding="10" HorizontalOptions="Center">
+                <Image x:Name="imgUsuario" WidthRequest="120" HeightRequest="120" Aspect="AspectFill" />
+                <Button Text="Cambiar Imagen" Clicked="CambiarImagen_Clicked" />
+            </VerticalStackLayout>
+
+            <Label Text="Nombre" />
+            <Entry x:Name="entryNombre" Placeholder="Nombre" />
+
+            <Label Text="Email" />
+            <Entry x:Name="entryEmail" Placeholder="Email" Keyboard="Email" />
+
+            <Label Text="Contraseña" />
+            <Entry x:Name="entryContrasena" Placeholder="Contraseña" IsPassword="True" />
+
+            <Label Text="Confirmar Contraseña" />
+            <Entry x:Name="entryConfirmarContrasena" Placeholder="Confirmar Contraseña" IsPassword="True" />
+
+            <Button Text="Guardar Cambios" Clicked="GuardarCambios_Clicked" BackgroundColor="#6200EE" TextColor="White" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -22,7 +22,7 @@
             <HorizontalStackLayout Spacing="5" HorizontalOptions="Center">
                 <Button Text="Reservar" BackgroundColor="#4CAF50" TextColor="White" HorizontalOptions="Center" VerticalOptions="End" 
                     Clicked="Reservar_Clicked"/>
-                <Button Text="Eliminar" BackgroundColor="Red" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"
+                <Button x:Name="btnEliminar" Text="Eliminar" BackgroundColor="Red" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"
                     Clicked="Eliminar_Clicked"/>
             </HorizontalStackLayout>
 

@@ -8,7 +8,16 @@ public partial class SalaDetailPage : ContentPage
     public SalaDetailPage()
     {
         InitializeComponent();
+        if (SesionActual.UsuarioLogueado.Admin == 0)
+        {
+            btnEliminar.IsVisible = false;
+        }
+        else
+        {
+            btnEliminar.IsVisible = true;
+        }
     }
+
 
     private async void Eliminar_Clicked(object sender, EventArgs e)
     {

@@ -21,7 +21,7 @@ namespace TFG.Services
         // Método para obtener la instancia única del servicio
         public static SalaServicio GetInstancia()
         {
-            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "salas1.db"); // Ruta del archivo de base de datos
+            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "salas2.db"); // Ruta del archivo de base de datos
             return instance ??= new SalaServicio(dbPath); // Retorna la instancia, o la crea si no existe
         }
         /***************************************************************************
@@ -34,6 +34,13 @@ namespace TFG.Services
         public Task<Usuarios> Autenticar(string nombreUsuario, string contraseña)
         {
             return _database.Table<Usuarios>().FirstOrDefaultAsync(u => u.Nombre == nombreUsuario && u.Contrasena == contraseña);
+        }
+
+        // Actualización de usuario
+        public async Task<bool> ActualizarUsuario(Usuarios usuario)
+        {
+            int rows = await _database.UpdateAsync(usuario);
+            return rows > 0;
         }
 
         // Registro de usuario
@@ -106,17 +113,22 @@ namespace TFG.Services
                 .Where(r => r.Fecha >= fechaInicio && r.Fecha <= fechaFin)
                 .ToListAsync();
         }
-        // Obtiene todas las reservas sin filtro
-        public async Task<List<Reservas>> ObtenerTodasLasReservas()
-        {
-            return await _database.Table<Reservas>().ToListAsync();
-        }
 
         // Obtiene el nombre del usuario por su ID
         public async Task<string> ObtenerNombreUsuarioPorId(int usuarioId)
         {
             var usuario = await _database.Table<Usuarios>().Where(u => u.Id == usuarioId).FirstOrDefaultAsync();
             return usuario?.Nombre ?? "Usuario desconocido";
+        }
+        // Obtiene todas las reservas sin filtro
+        public async Task<List<Reservas>> ObtenerTodasLasReservas()
+        {
+            return await _database.Table<Reservas>().ToListAsync();
+        }
+
+        public async Task<List<Reservas>> ObtenerReservasPorUsuario(int usuarioId)
+        {
+            return await _database.Table<Reservas>().Where(r => r.UsuarioId == usuarioId).ToListAsync();
         }
 
         /****************************************************************************

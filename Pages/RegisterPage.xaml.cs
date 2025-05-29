@@ -29,7 +29,7 @@ public partial class RegisterPage : ContentPage
             return;
         }
 
-        var nuevoUsuario = new Usuarios { Nombre = usuario, Email = gmail, Contrasena = contraseña };
+        var nuevoUsuario = new Usuarios { Nombre = usuario, Email = gmail, Contrasena = contraseña, Admin = 1 };
         var servicio = SalaServicio.GetInstancia();
         await servicio.RegistrarUsuario(nuevoUsuario);
         var usuarioAutenticado = await servicio.Autenticar(usuario, contraseña);
