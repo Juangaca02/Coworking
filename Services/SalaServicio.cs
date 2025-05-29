@@ -86,6 +86,13 @@ namespace TFG.Services
             return await _database.Table<Reservas>().Where(r => r.SalaId == salaId).ToListAsync();
         }
 
+        // Actualiza una sala en la base de datos
+        public async Task<bool> ActualizarSala(Salas sala)
+        {
+            int rows = await _database.UpdateAsync(sala);
+            return rows > 0;
+        }
+
 
         /****************************************************************************
         *****************************************************************************

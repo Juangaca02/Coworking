@@ -24,6 +24,9 @@
                     Clicked="Reservar_Clicked"/>
                 <Button x:Name="btnEliminar" Text="Eliminar" BackgroundColor="Red" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"
                     Clicked="Eliminar_Clicked"/>
+                <Button x:Name="btnEditar" Text="Editar Sala" BackgroundColor="#007ACC" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"
+                    Clicked="EditarSala_Clicked" />
+
             </HorizontalStackLayout>
 
         </StackLayout>

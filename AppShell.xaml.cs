@@ -18,10 +18,15 @@ namespace TFG
             Routing.RegisterRoute("register", typeof(RegisterPage));
             Routing.RegisterRoute("calendar", typeof(CalendarPage));
             Routing.RegisterRoute("salaDetail", typeof(SalaDetailPage));
+            Routing.RegisterRoute("editarSala", typeof(EditarSalaPage));
             Routing.RegisterRoute("ajustesPage", typeof(AjustesPage));
             Routing.RegisterRoute(nameof(SalaDetailPage), typeof(SalaDetailPage));
 
-
+            CargarInfoUsuario();
+            ActualizarEstadoSesion();
+        }
+        public void ActualizarEstadoSesion()
+        {
             // Verificar si el usuario está logueado
             if (SesionActual.UsuarioLogueado == null)
             {
@@ -36,9 +41,7 @@ namespace TFG
                 TabInicio.IsVisible = false;
                 TabSalas.IsVisible = false;
                 SalasAjustesUsuario.IsVisible = false;
-
-                // No mostrar el nombre de usuario en la cabecera
-                UsuarioLabel.IsVisible = false;
+                btnCerrarSesion.IsVisible = false;
             }
             else
             {
@@ -60,10 +63,7 @@ namespace TFG
                 TabInicio.IsVisible = true;
                 TabSalas.IsVisible = true;
                 SalasAjustesUsuario.IsVisible = true;
-
-                // Mostrar el nombre de usuario en la cabecera
-                UsuarioLabel.IsVisible = true;
-                UsuarioLabel.Text = SesionActual.UsuarioLogueado.Nombre;
+                btnCerrarSesion.IsVisible = true;
 
                 // Este código no es necesario si navegamos explícitamente desde la página de login
                 // pero es bueno tenerlo como respaldo
@@ -73,5 +73,51 @@ namespace TFG
                 });
             }
         }
+
+        private void CargarInfoUsuario()
+        {
+            var usuario = SesionActual.UsuarioLogueado;
+            if (usuario != null)
+            {
+                UsuarioLabel.Text = usuario.Nombre;
+
+                if (!string.IsNullOrEmpty(usuario.Imagen))
+                {
+                    try
+                    {
+                        var base64 = usuario.Imagen;
+                        imgUsuarioFlyout.Source = ImageSource.FromStream(() =>
+                        {
+                            byte[] bytes = Convert.FromBase64String(base64);
+                            return new MemoryStream(bytes);
+                        });
+                    }
+                    catch
+                    {
+                        imgUsuarioFlyout.Source = "default_user.png";
+                    }
+                }
+                else
+                {
+                    imgUsuarioFlyout.Source = "default_user.png";
+                }
+            }
+            else
+            {
+                UsuarioLabel.Text = "Invitado";
+                imgUsuarioFlyout.Source = "default_user.png";
+            }
+        }
+
+        private async void CerrarSesion_Clicked(object sender, EventArgs e)
+        {
+            bool confirm = await DisplayAlert("Cerrar sesión", "¿Estás seguro que quieres cerrar sesión?", "Sí", "No");
+            if (confirm)
+            {
+                SesionActual.UsuarioLogueado = null;
+                ActualizarEstadoSesion();
+            }
+        }
     }
 }
+

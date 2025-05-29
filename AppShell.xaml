@@ -7,21 +7,14 @@
     x:Class="TFG.AppShell">
 
     <Shell.FlyoutHeader>
-        <StackLayout Padding="10" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-            <Label Text="Menú Principal"
-                    FontSize="20"
-                    HorizontalOptions="StartAndExpand" />
-            <Label x:Name="UsuarioLabel"
-                    Text="Usuario"
-                    HorizontalOptions="EndAndExpand"
-                    VerticalOptions="Center"
-                    FontSize="16"
-                    IsVisible="False" />
+        <StackLayout Padding="10" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Spacing="10">
+            <Image x:Name="imgUsuarioFlyout" WidthRequest="50" HeightRequest="50" Aspect="AspectFill" />
+            <Label x:Name="UsuarioLabel" Text="Usuario" VerticalOptions="Center" FontSize="20" />
         </StackLayout>
     </Shell.FlyoutHeader>
 
     <!-- Menú de navegación -->
-    <FlyoutItem Title="Menú Principal" IsVisible="True" x:Name="menuPrincipal" Route="menuPrincipal">
+    <FlyoutItem Title="Menú Principal" Icon="inicio.png" IsVisible="True" x:Name="menuPrincipal" Route="menuPrincipal">
         <!-- Contenido que se mostrará cuando los tabs estén ocultos -->
         <ShellContent Route="default" ContentTemplate="{DataTemplate views:MainPage}" x:Name="DefaultContent" />
 
@@ -54,13 +47,14 @@
         <ShellContent ContentTemplate="{DataTemplate pages:SalasPage}" Route="salasPage" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Ajustes" IsVisible="True" x:Name="SalasAjustesUsuario" Route="ajustesUsuario">
+    <FlyoutItem Title="Ajustes" Icon="ajuste.png" IsVisible="True" x:Name="SalasAjustesUsuario" Route="ajustesUsuario">
         <ShellContent ContentTemplate="{DataTemplate pages:AjustesPage}" Route="ajustesPage" />
     </FlyoutItem>
 
     <!-- Footer -->
     <Shell.FlyoutFooter>
-        <StackLayout Padding="10">
+        <StackLayout Padding="10" VerticalOptions="EndAndExpand" Spacing="10">
+            <Button x:Name="btnCerrarSesion" Text="Cerrar sesión" BackgroundColor="#D32F2F" TextColor="White" Clicked="CerrarSesion_Clicked" />
             <Label Text="Acerca de la aplicacion" FontSize="12" HorizontalOptions="Center"/>
         </StackLayout>
     </Shell.FlyoutFooter>

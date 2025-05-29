@@ -11,10 +11,12 @@ public partial class SalaDetailPage : ContentPage
         if (SesionActual.UsuarioLogueado.Admin == 0)
         {
             btnEliminar.IsVisible = false;
+            btnEditar.IsVisible = false;
         }
         else
         {
             btnEliminar.IsVisible = true;
+            btnEditar.IsVisible = true;
         }
     }
 
@@ -41,6 +43,14 @@ public partial class SalaDetailPage : ContentPage
             // Navegar a la página de Calendar pasando la sala como parámetro
             //await Shell.Current.GoToAsync($"{nameof(CalendarPage)}?SalaId={sala.Id}");
             await Shell.Current.GoToAsync($"calendar?SalaId={sala.Id}");
+        }
+    }
+
+    private async void EditarSala_Clicked(object sender, EventArgs e)
+    {
+        if (BindingContext is Salas sala)
+        {
+            await Navigation.PushAsync(new EditarSalaPage(sala));
         }
     }
 }

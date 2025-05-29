@@ -2,9 +2,9 @@ C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatal
 C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\mauifont.inputs
 C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\mauisplash.inputs
 C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\mauisplash.stamp
+C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\inicio.png
 C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\historial.png
 C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\reserva.png
-C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\resizetizer\r\Resources\inicio.png
 C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\resizetizer\r\Assets.xcassets\appicon.appiconset\appiconItunesArtwork.png
 C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\resizetizer\r\Assets.xcassets\appicon.appiconset\appicon83.5x83.5@2x.png
 C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\resizetizer\r\Assets.xcassets\appicon.appiconset\appicon76x76@2x.png
@@ -45,9 +45,6 @@ C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatal
 C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\TFG.AssemblyInfo.cs
 C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\TFG.csproj.CoreCompileInputs.cache
 C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\TFG.sourcelink.json
-C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\TFG.dll
-C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\refint\TFG.dll
-C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\TFG.pdb
 C:\Users\JUANAN\source\repos\Coworking\TFG\bin\Debug\net9.0-maccatalyst\maccatalyst-x64\TFG.runtimeconfig.json
 C:\Users\JUANAN\source\repos\Coworking\TFG\bin\Debug\net9.0-maccatalyst\maccatalyst-x64\TFG.dll
 C:\Users\JUANAN\source\repos\Coworking\TFG\bin\Debug\net9.0-maccatalyst\maccatalyst-x64\TFG.pdb
@@ -357,5 +354,8 @@ C:\Users\JUANAN\source\repos\Coworking\TFG\bin\Debug\net9.0-maccatalyst\maccatal
 C:\Users\JUANAN\source\repos\Coworking\TFG\bin\Debug\net9.0-maccatalyst\maccatalyst-x64\Microsoft.VisualStudio.DesignTools.TapContract.dll
 C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\XamlC.stamp
 C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\TFG.csproj.Up2Date
+C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\TFG.dll
+C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\refint\TFG.dll
+C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\TFG.pdb
 C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\TFG.genruntimeconfig.cache
 C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\ref\TFG.dll

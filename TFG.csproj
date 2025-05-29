@@ -84,6 +84,9 @@
 		<MauiXaml Update="Pages\CalendarPage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
+		<MauiXaml Update="Pages\EditarSalaPage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 		<MauiXaml Update="Pages\HistorialPage.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
@@ -92,9 +95,6 @@
 		</MauiXaml>
 		<MauiXaml Update="Pages\RegisterPage.xaml">
 		  <Generator>MSBuild:Compile</Generator>
-		</MauiXaml>
-		<MauiXaml Update="Pages\SalaDetailPage.xaml">
-			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="Pages\SalasPage.xaml">
 		  <Generator>MSBuild:Compile</Generator>
