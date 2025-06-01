@@ -2,22 +2,27 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TFG.Pages.RegisterPage"
-             Title="RegisterPage">
-
+             Title="Registro">
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="#FFFFFF" Offset="0.0" />
+            <GradientStop Color="#F3E5F5" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
     <VerticalStackLayout Padding="30" Spacing="20">
 
         <Label Text="Usuario" FontSize="Medium"/>
-        <Entry x:Name="usuarioEntry" Placeholder="Nombre de usuario"/>
+        <Entry Placeholder="Usuario" Text="{Binding Usuario}" />
 
         <Label Text="Email" FontSize="Medium"/>
-        <Entry x:Name="emailEntry" Placeholder="Gmail" />
+        <Entry Placeholder="Email" Text="{Binding Email}" />
 
         <Label Text="Contraseña" FontSize="Medium"/>
-        <Entry x:Name="contraseñaEntry" Placeholder="Contraseña" IsPassword="True"/>
+        <Entry Placeholder="Contraseña" Text="{Binding Contraseña}" IsPassword="True" />
 
         <Label Text="Confirmar Contraseña" FontSize="Medium"/>
-        <Entry x:Name="confirmarContraseñaEntry" Placeholder="Confirmar Contraseña" IsPassword="True"/>
+        <Entry Placeholder="Confirmar Contraseña" Text="{Binding ConfirmarContraseña}" IsPassword="True" />
 
-        <Button Text="Registrar" Clicked="Registrar_Clicked"  BackgroundColor="#4CAF50" TextColor="White"/>
+        <Button Text="Registrarse" Command="{Binding RegistrarCommand}" />
     </VerticalStackLayout>
 </ContentPage>

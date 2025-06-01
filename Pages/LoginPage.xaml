@@ -3,17 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:TFG.ViewModel"
              x:Class="TFG.Pages.LoginPage"
-             Title="LoginPage">
+             Title="Inicio Sesion">
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="#FFFFFF" Offset="0.0" />
+            <GradientStop Color="#F3E5F5" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
     <VerticalStackLayout Padding="30" Spacing="20">
 
         <Label Text="Usuario" FontSize="Medium"/>
-        <Entry x:Name="usuarioEntry" Placeholder="Nombre de usuario"/>
+        <Entry Placeholder="Usuario" Text="{Binding Usuario}" />
 
         <Label Text="Contraseña" FontSize="Medium"/>
-        <Entry x:Name="contraseñaEntry" Placeholder="Contraseña" IsPassword="True"/>
+        <Entry Placeholder="Contraseña" IsPassword="True" Text="{Binding Contraseña}" />
 
-        <Button Text="Iniciar Sesión" Clicked="IniciarSesion_Clicked" BackgroundColor="#4CAF50" TextColor="White"/>
+        <Button Text="Iniciar sesión" BackgroundColor="#4CAF50" Command="{Binding IniciarSesionCommand}" />
 
-        <Button Text="Registrarse" Clicked="IrARegistro_Clicked" BackgroundColor="#2196F3" TextColor="White"/>
+        <Button Text="¿No tienes cuenta?" BackgroundColor="Red" Command="{Binding IrARegistroCommand}" />
     </VerticalStackLayout>
 </ContentPage>

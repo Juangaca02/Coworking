@@ -21,7 +21,7 @@ namespace TFG.Services
         // Método para obtener la instancia única del servicio
         public static SalaServicio GetInstancia()
         {
-            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "salas2.db"); // Ruta del archivo de base de datos
+            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "salas4.db"); // Ruta del archivo de base de datos
             return instance ??= new SalaServicio(dbPath); // Retorna la instancia, o la crea si no existe
         }
         /***************************************************************************
@@ -149,10 +149,10 @@ namespace TFG.Services
             {
                 var listaInicial = new List<Salas>
                 {
-                    new() { Nombre = "Sala 1", Capacidad = 10, Equipamiento = new List<string> { "Proyector", "Pizarra" }, Estado = "Disponible", Imagen = "dotnet_bot.png" },
-                    new() { Nombre = "Sala 2", Capacidad = 10, Equipamiento = new List<string> { "Proyector" }, Estado = "Disponible", Imagen = "dotnet_bot.png" },
-                    new() { Nombre = "Sala 3", Capacidad = 10, Equipamiento = new List<string> { "Pizarra" }, Estado = "Disponible", Imagen = "dotnet_bot.png" },
-                    new() { Nombre = "Sala 4", Capacidad = 10, Equipamiento = new List<string> { "Proyector", "Pizarra" }, Estado = "Disponible", Imagen = "dotnet_bot.png" },
+                    new() { Nombre = "Sala Profesional", Capacidad = 15, Equipamiento = new List<string> { "Proyector", "Pizarra" }, Estado = "Disponible", Imagen = "sala1.jpg" },
+                    new() { Nombre = "Sala Editorial", Capacidad = 20, Equipamiento = new List<string> { "Proyector" }, Estado = "Disponible", Imagen = "sala3.jpg" },
+                    new() { Nombre = "Sala Conferencias", Capacidad = 13, Equipamiento = new List<string> { "Pizarra" }, Estado = "Disponible", Imagen = "sala4.jpg" },
+                    new() { Nombre = "Sala Reuniones", Capacidad = 8, Equipamiento = new List<string> { "Proyector", "Pizarra" }, Estado = "Disponible", Imagen = "sala5.jpg" },
                 };
 
                 foreach (var sala in listaInicial)

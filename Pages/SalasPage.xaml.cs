@@ -40,10 +40,14 @@ public partial class SalasPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-
         if (BindingContext is SalasViewModel viewModel)
         {
             await viewModel.RecargarSalas();
         }
+    }
+    protected override bool OnBackButtonPressed()
+    {
+        MainThread.BeginInvokeOnMainThread(async () => { await Navigation.PopAsync(); });
+        return true;
     }
 }

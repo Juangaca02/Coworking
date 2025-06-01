@@ -3,6 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TFG.Pages.SalaDetailPage"
              Title="Detalles de la Sala">
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="#FFFFFF" Offset="0.0" />
+            <GradientStop Color="#F3E5F5" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
     <ScrollView>
         <StackLayout Padding="20" Spacing="15">
             <Image Source="{Binding Imagen}" HeightRequest="150" Aspect="AspectFill"/>
@@ -20,7 +26,7 @@
 
             <!-- Botón de reservar -->
             <HorizontalStackLayout Spacing="5" HorizontalOptions="Center">
-                <Button Text="Reservar" BackgroundColor="#4CAF50" TextColor="White" HorizontalOptions="Center" VerticalOptions="End" 
+                <Button x:Name="btnReservar" Text="Reservar" BackgroundColor="#4CAF50" TextColor="White" HorizontalOptions="Center" VerticalOptions="End"
                     Clicked="Reservar_Clicked"/>
                 <Button x:Name="btnEliminar" Text="Eliminar" BackgroundColor="Red" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"
                     Clicked="Eliminar_Clicked"/>

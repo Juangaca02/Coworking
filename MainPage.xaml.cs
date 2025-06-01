@@ -31,5 +31,13 @@ namespace TFG
         {
             await Navigation.PushAsync(new RegisterPage());
         }
+        protected override bool OnBackButtonPressed()
+        {
+            MainThread.BeginInvokeOnMainThread(async () =>
+            {
+                await Navigation.PopAsync();
+            });
+            return true;
+        }
     }
 }

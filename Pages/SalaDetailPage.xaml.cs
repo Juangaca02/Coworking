@@ -15,10 +15,24 @@ public partial class SalaDetailPage : ContentPage
         }
         else
         {
-            btnEliminar.IsVisible = true;
+            btnEliminar.IsVisible = false;
             btnEditar.IsVisible = true;
         }
     }
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        if (BindingContext is Salas sala)
+        {
+            if (sala.Estado == "En Mantenimiento")
+            {
+                btnReservar.IsEnabled = false;
+                btnReservar.Text = "No disponible";
+            }
+        }
+    }
+
 
 
     private async void Eliminar_Clicked(object sender, EventArgs e)

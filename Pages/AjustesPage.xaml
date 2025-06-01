@@ -2,13 +2,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TFG.Pages.AjustesPage"
              Title="Ajustes de Usuario">
-
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="#FFFFFF" Offset="0.0" />
+            <GradientStop Color="#F3E5F5" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
 
             <VerticalStackLayout  Padding="10" HorizontalOptions="Center">
                 <Image x:Name="imgUsuario" WidthRequest="120" HeightRequest="120" Aspect="AspectFill" />
-                <Button Text="Cambiar Imagen" Clicked="CambiarImagen_Clicked" />
+                <Button Text="Cambiar Imagen" BackgroundColor="CadetBlue" Clicked="CambiarImagen_Clicked" />
             </VerticalStackLayout>
 
             <Label Text="Nombre" />
@@ -23,7 +28,7 @@
             <Label Text="Confirmar Contraseña" />
             <Entry x:Name="entryConfirmarContrasena" Placeholder="Confirmar Contraseña" IsPassword="True" />
 
-            <Button Text="Guardar Cambios" Clicked="GuardarCambios_Clicked" BackgroundColor="#6200EE" TextColor="White" />
+            <Button Text="Guardar Cambios" Clicked="GuardarCambios_Clicked" BackgroundColor="#4CAF50" TextColor="White" />
 
         </VerticalStackLayout>
     </ScrollView>

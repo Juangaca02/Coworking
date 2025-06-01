@@ -1,4 +1,4 @@
-using TFG.Models;
+ï»¿using TFG.Models;
 using TFG.Services;
 
 namespace TFG.Pages;
@@ -19,6 +19,10 @@ public partial class AjustesPage : ContentPage
         CargarDatosUsuario();
     }
 
+    /**
+    * Metodo para recargar la imagen del usuario al volver a la pantalla
+    * 
+    */
     protected override void OnAppearing()
     {
         base.OnAppearing();
@@ -40,16 +44,19 @@ public partial class AjustesPage : ContentPage
             }
             catch
             {
-                imgUsuario.Source = "default_user.png";
+                imgUsuario.Source = "usuario.png";
             }
         }
         else
         {
-            imgUsuario.Source = "default_user.png";
+            imgUsuario.Source = "usuario.png";
         }
     }
 
-
+    /*
+    * Metodo para cargar los datos del usuario logueado
+    * 
+    */
     private void CargarDatosUsuario()
     {
         _usuarioActual = SesionActual.UsuarioLogueado;
@@ -70,17 +77,21 @@ public partial class AjustesPage : ContentPage
                 }
                 catch
                 {
-                    imgUsuario.Source = "default_user.png";
+                    imgUsuario.Source = "usuario.png";
                 }
             }
             else
             {
-                imgUsuario.Source = "default_user.png";
+                imgUsuario.Source = "usuario.png";
             }
 
         }
     }
 
+    /**
+    * Metodo para seleccionar una imagen de la galerï¿½a y mostrarla en la pantalla
+    * 
+    */
     private async void CambiarImagen_Clicked(object sender, EventArgs e)
     {
         try
@@ -93,7 +104,7 @@ public partial class AjustesPage : ContentPage
                 await stream.CopyToAsync(ms);
                 imagenTemporalBytes = ms.ToArray();
 
-                // Mostrar previsualización
+                // Mostrar previsualizaciï¿½n
                 imgUsuario.Source = ImageSource.FromStream(() => new MemoryStream(imagenTemporalBytes));
             }
         }
@@ -103,7 +114,10 @@ public partial class AjustesPage : ContentPage
         }
     }
 
-
+    /**
+    * Mï¿½todo para guardar los cambios realizados en la pantalla
+    * 
+    */
     private async void GuardarCambios_Clicked(object sender, EventArgs e)
     {
         string nombre = entryNombre.Text?.Trim();
@@ -121,11 +135,10 @@ public partial class AjustesPage : ContentPage
         {
             if (contrasena != confirmarContrasena)
             {
-                await DisplayAlert("Error", "Las contraseñas no coinciden.", "OK");
+                await DisplayAlert("Error", "Las contraseÃ±as no coinciden.", "OK");
                 return;
             }
-            // Aquí puedes añadir validación de fuerza de contraseña si quieres
-            _usuarioActual.Contrasena = contrasena; // Asumiendo que tienes ese campo
+            _usuarioActual.Contrasena = contrasena;
         }
         if (imagenTemporalBytes != null)
         {
@@ -140,10 +153,10 @@ public partial class AjustesPage : ContentPage
             bool exito = await _salaServicio.ActualizarUsuario(_usuarioActual);
             if (exito)
             {
-                await DisplayAlert("Éxito", "Datos actualizados correctamente.", "OK");
-                // Actualizar sesión
+                await DisplayAlert("Exito", "Datos actualizados correctamente.", "OK");
                 SesionActual.UsuarioLogueado = _usuarioActual;
-                await Navigation.PopAsync();
+                App.Current.MainPage = new AppShell();
+                await Shell.Current.GoToAsync("//menuPrincipal");
                 CargarDatosUsuario();
             }
             else
@@ -156,4 +169,15 @@ public partial class AjustesPage : ContentPage
             await DisplayAlert("Error", "Error al actualizar: " + ex.Message, "OK");
         }
     }
+
+    protected override bool OnBackButtonPressed()
+    {
+        MainThread.BeginInvokeOnMainThread(async () =>
+        {
+            await Navigation.PopAsync();
+        });
+
+        return true;
+    }
+
 }

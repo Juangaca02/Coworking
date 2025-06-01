@@ -1,7 +1,7 @@
 @string/appbar_scrolling_view_behavior;C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-android\lp\175\jl\res\layout\fragment_backstack.xml
 @string/appbar_scrolling_view_behavior;C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-android\lp\175\jl\res\layout\navigationlayout.xml
-adaptive-icon;obj\Debug\net9.0-android\resizetizer\r\mipmap-anydpi-v26\appicon.xml
-adaptive-icon;obj\Debug\net9.0-android\resizetizer\r\mipmap-anydpi-v26\appicon_round.xml
+adaptive-icon;obj\Debug\net9.0-android\resizetizer\r\mipmap-anydpi-v26\applogo.xml
+adaptive-icon;obj\Debug\net9.0-android\resizetizer\r\mipmap-anydpi-v26\applogo_round.xml
 alpha;C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-android\lp\173\jl\res\anim\enterfromleft.xml
 alpha;C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-android\lp\173\jl\res\anim\exittoleft.xml
 alpha;C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-android\lp\175\jl\res\anim\nav_default_enter_anim.xml
@@ -14,8 +14,8 @@ androidx.drawerlayout.widget.DrawerLayout;C:\Users\JUANAN\source\repos\Coworking
 androidx.fragment.app.FragmentContainerView;C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-android\lp\175\jl\res\layout\fragment_backstack.xml
 androidx.fragment.app.FragmentContainerView;C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-android\lp\175\jl\res\layout\navigationlayout.xml
 attr;C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-android\lp\175\jl\res\values\attr.xml
-background;obj\Debug\net9.0-android\resizetizer\r\mipmap-anydpi-v26\appicon.xml
-background;obj\Debug\net9.0-android\resizetizer\r\mipmap-anydpi-v26\appicon_round.xml
+background;obj\Debug\net9.0-android\resizetizer\r\mipmap-anydpi-v26\applogo.xml
+background;obj\Debug\net9.0-android\resizetizer\r\mipmap-anydpi-v26\applogo_round.xml
 bitmap;obj\Debug\net9.0-android\resizetizer\sp\drawable\maui_splash_image.xml
 bitmap;obj\Debug\net9.0-android\resizetizer\sp\drawable-v31\maui_splash_image.xml
 cache-path;C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-android\lp\176\jl\res\xml\microsoft_maui_essentials_fileprovider_file_paths.xml
@@ -28,8 +28,8 @@ com.google.android.material.appbar.AppBarLayout;C:\Users\JUANAN\source\repos\Cow
 declare-styleable;C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-android\lp\175\jl\res\values\attr.xml
 external-cache-path;C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-android\lp\176\jl\res\xml\microsoft_maui_essentials_fileprovider_file_paths.xml
 external-path;C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-android\lp\176\jl\res\xml\microsoft_maui_essentials_fileprovider_file_paths.xml
-foreground;obj\Debug\net9.0-android\resizetizer\r\mipmap-anydpi-v26\appicon.xml
-foreground;obj\Debug\net9.0-android\resizetizer\r\mipmap-anydpi-v26\appicon_round.xml
+foreground;obj\Debug\net9.0-android\resizetizer\r\mipmap-anydpi-v26\applogo.xml
+foreground;obj\Debug\net9.0-android\resizetizer\r\mipmap-anydpi-v26\applogo_round.xml
 item;C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-android\lp\174\jl\res\values\values.xml
 item;C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-android\lp\175\jl\res\drawable\maui_splash.xml
 item;C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-android\lp\175\jl\res\values\styles.xml
@@ -42,8 +42,8 @@ layer-list;C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-android\l
 layer-list;obj\Debug\net9.0-android\resizetizer\sp\drawable\maui_splash_image.xml
 layer-list;obj\Debug\net9.0-android\resizetizer\sp\drawable-v31\maui_splash_image.xml
 microsoft.maui.controls.platform.compatibility.ShellFlyoutLayout;C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-android\lp\173\jl\res\layout\flyoutcontent.xml
-monochrome;obj\Debug\net9.0-android\resizetizer\r\mipmap-anydpi-v26\appicon.xml
-monochrome;obj\Debug\net9.0-android\resizetizer\r\mipmap-anydpi-v26\appicon_round.xml
+monochrome;obj\Debug\net9.0-android\resizetizer\r\mipmap-anydpi-v26\applogo.xml
+monochrome;obj\Debug\net9.0-android\resizetizer\r\mipmap-anydpi-v26\applogo_round.xml
 paths;C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-android\lp\176\jl\res\xml\microsoft_maui_essentials_fileprovider_file_paths.xml
 resources;C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-android\lp\173\jl\res\values\strings.xml
 resources;C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-android\lp\174\jl\res\values\values.xml

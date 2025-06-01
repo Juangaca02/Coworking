@@ -3,28 +3,53 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TFG.Pages.EditarSalaPage"
              Title="Editar Sala">
+
+    <!-- Fondo con degradado -->
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="#FFFFFF" Offset="0.0" />
+            <GradientStop Color="#F3E5F5" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
 
             <Label Text="Nombre" />
-            <Entry x:Name="entryNombre" Placeholder="Nombre de la sala" />
+            <Entry Placeholder="Nombre de la sala"
+                   Text="{Binding Nombre}" />
 
             <Label Text="Capacidad" />
-            <Entry x:Name="entryCapacidad" Keyboard="Numeric" Placeholder="Capacidad" />
+            <Entry Keyboard="Numeric"
+                   Placeholder="Capacidad"
+                   Text="{Binding Capacidad}" />
 
             <Label Text="Equipamiento (separado por coma)" />
-            <Entry x:Name="entryEquipamiento" Placeholder="Proyector, Pizarra, ..." />
+            <Entry Placeholder="Proyector, Pizarra, ..."
+                   Text="{Binding Equipamiento}" />
 
             <Label Text="Estado" />
-            <Picker x:Name="pickerEstado">
-                <Picker.Items>
-                    <x:String>Disponible</x:String>
-                    <x:String>Ocupada</x:String>
-                    <x:String>En Mantenimiento</x:String>
-                </Picker.Items>
-            </Picker>
+            <Picker ItemsSource="{Binding EstadosDisponibles}"
+                    SelectedItem="{Binding Estado}" />
 
-            <Button Text="Guardar Cambios" Clicked="GuardarCambios_Clicked" BackgroundColor="#6200EE" TextColor="White" />
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Button Text="Guardar Cambios"
+                        Command="{Binding GuardarCambiosCommand}"
+                        BackgroundColor="#4CAF50"
+                        TextColor="White"
+                        Margin="0,10,20,0"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center" />
+
+                <Button Text="Volver"
+                        BackgroundColor="Red"
+                        TextColor="White"
+                        Margin="0,10,0,0"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        WidthRequest="150"
+                        Clicked="Volver_Clicked" />
+            </HorizontalStackLayout>
 
         </VerticalStackLayout>
     </ScrollView>

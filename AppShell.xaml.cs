@@ -94,18 +94,29 @@ namespace TFG
                     }
                     catch
                     {
-                        imgUsuarioFlyout.Source = "default_user.png";
+                        imgUsuarioFlyout.Source = "usuario.png";
                     }
                 }
                 else
                 {
-                    imgUsuarioFlyout.Source = "default_user.png";
+                    imgUsuarioFlyout.Source = "usuario.png";
+                }
+
+                // Mostrar "Usuario Admin" si es admin
+                if (usuario.Admin == 1)
+                {
+                    UsuarioAdminLabel.IsVisible = true;
+                }
+                else
+                {
+                    UsuarioAdminLabel.IsVisible = false;
                 }
             }
             else
             {
                 UsuarioLabel.Text = "Invitado";
-                imgUsuarioFlyout.Source = "default_user.png";
+                imgUsuarioFlyout.Source = "usuario.png";
+                UsuarioAdminLabel.IsVisible = false;
             }
         }
 

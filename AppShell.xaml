@@ -5,40 +5,42 @@
     xmlns:views="clr-namespace:TFG"
     xmlns:pages="clr-namespace:TFG.Pages"
     x:Class="TFG.AppShell">
-
+    <Shell.FlyoutBackground>
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="#FFFFFF" Offset="0.0"/>
+            <GradientStop Color="#F3E5F5" Offset="1.0"/>
+        </LinearGradientBrush>
+    </Shell.FlyoutBackground>
     <Shell.FlyoutHeader>
-        <StackLayout Padding="10" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Spacing="10">
-            <Image x:Name="imgUsuarioFlyout" WidthRequest="50" HeightRequest="50" Aspect="AspectFill" />
-            <Label x:Name="UsuarioLabel" Text="Usuario" VerticalOptions="Center" FontSize="20" />
+        <StackLayout Padding="10" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Spacing="10">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Image x:Name="imgUsuarioFlyout" WidthRequest="50" HeightRequest="50" Aspect="AspectFill" Margin="0,0,10,0"/>
+                <Label x:Name="UsuarioLabel" Text="Usuario" VerticalOptions="Center" FontSize="20" HorizontalOptions="StartAndExpand" />
+            </StackLayout>
+            <Label x:Name="UsuarioAdminLabel" Text="(Usuario Admin)" IsVisible="False" VerticalOptions="Start" HorizontalOptions="StartAndExpand"  FontSize="14"  TextColor="Gray" />
         </StackLayout>
     </Shell.FlyoutHeader>
 
+
     <!-- Menú de navegación -->
     <FlyoutItem Title="Menú Principal" Icon="inicio.png" IsVisible="True" x:Name="menuPrincipal" Route="menuPrincipal">
-        <!-- Contenido que se mostrará cuando los tabs estén ocultos -->
         <ShellContent Route="default" ContentTemplate="{DataTemplate views:MainPage}" x:Name="DefaultContent" />
-
-        <!-- Página de Historial -->
-        <Tab Title="Historial" Icon="historial.png" IsVisible="False" x:Name="TabHistorial" Route="TabHistorial">
+        <Tab Title="Historial" Icon="historial.png" IsVisible="False" x:Name="TabHistorial" Route="TabHistorial" Shell.TabBarBackgroundColor="#F3E5F5">
             <ShellContent ContentTemplate="{DataTemplate pages:HistorialPage}" Route="historial" />
         </Tab>
-
-        <!-- Página de inicio -->
-        <Tab Title="Inicio" Icon="inicio.png" IsVisible="False" x:Name="TabInicio" Route="TabInicio">
+        <Tab Title="Inicio" Icon="inicio.png" IsVisible="False" x:Name="TabInicio" Route="TabInicio" Shell.TabBarBackgroundColor="#F3E5F5">
             <ShellContent ContentTemplate="{DataTemplate views:MainPage}" Route="inicio" />
         </Tab>
-
-        <!-- Página de Salas -->
-        <Tab Title="Salas" Icon="reserva.png" IsVisible="False" x:Name="TabSalas" Route="TabSalas">
+        <Tab Title="Salas" Icon="reserva.png" IsVisible="False" x:Name="TabSalas" Route="TabSalas" Shell.TabBarBackgroundColor="#F3E5F5">
             <ShellContent ContentTemplate="{DataTemplate pages:SalasPage}" Route="salas" />
         </Tab>
     </FlyoutItem>
 
-    <FlyoutItem Title="Login" IsVisible="False" x:Name="LoginMenuItem" Route="login">
+    <FlyoutItem Title="Login" Icon="login.png" IsVisible="False" x:Name="LoginMenuItem" Route="login">
         <ShellContent ContentTemplate="{DataTemplate pages:LoginPage}" Route="loginPage" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Registrar" IsVisible="False" x:Name="RegisterMenuItem" Route="register">
+    <FlyoutItem Title="Registrar" Icon="registro.png" IsVisible="False" x:Name="RegisterMenuItem" Route="register">
         <ShellContent ContentTemplate="{DataTemplate pages:RegisterPage}" Route="registerPage" />
     </FlyoutItem>
 

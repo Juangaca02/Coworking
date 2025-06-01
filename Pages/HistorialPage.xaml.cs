@@ -80,65 +80,6 @@ namespace TFG.Pages
             btnPdf.IsEnabled = filtradas.Count > 0;
         }
 
-        private void OnExcelClicked(object sender, EventArgs e)
-        {
-            string desde = datePickerDesde.Date.ToString("yyyy-MM-dd");
-            string hasta = datePickerHasta.Date.ToString("yyyy-MM-dd");
-            GenerateExcelReport(desde, hasta);
-        }
-
-        private async void GenerateExcelReport(string desde, string hasta)
-        {
-            try
-            {
-                var servicio = SalaServicio.GetInstancia();
-                var reservas = await servicio.ObtenerReservasEntreFechas(datePickerDesde.Date, datePickerHasta.Date);
-
-                if (reservas.Count == 0)
-                {
-                    await DisplayAlert("Sin Reservas", "No hay reservas para este rango de fechas.", "OK");
-                    return;
-                }
-
-                var filePath = Path.Combine(FileSystem.CacheDirectory, "HistorialReserva.xlsx");
-                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-
-                using (var package = new ExcelPackage())
-                {
-                    var sheet = package.Workbook.Worksheets.Add("Historial");
-                    sheet.Cells[1, 1].Value = "Sala";
-                    sheet.Cells[1, 2].Value = "Fecha";
-                    sheet.Cells[1, 3].Value = "Hora";
-
-                    using (var range = sheet.Cells[1, 1, 1, 3])
-                    {
-                        range.Style.Font.Bold = true;
-                        range.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    }
-
-                    int row = 2;
-                    foreach (var reserva in reservas)
-                    {
-                        string salaNombre = await _SalaServicio.ObtenerNombreSalaPorId(reserva.SalaId);
-                        sheet.Cells[row, 1].Value = salaNombre;
-                        sheet.Cells[row, 2].Value = reserva.Fecha.ToString("yyyy-MM-dd");
-                        sheet.Cells[row, 3].Value = reserva.Hora;
-                        row++;
-                    }
-
-                    sheet.Cells.AutoFitColumns();
-                    File.WriteAllBytes(filePath, package.GetAsByteArray());
-                }
-
-                await Shell.Current.DisplayAlert("Éxito", "Informe Excel generado", "OK");
-                await Launcher.OpenAsync(new OpenFileRequest { File = new ReadOnlyFile(filePath) });
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Error", "No se pudo generar el archivo Excel: " + ex.Message, "OK");
-            }
-        }
-
         private void OnPdfClicked(object sender, EventArgs e)
         {
             var datosFiltrados = ((List<object>)tablaReservas.ItemsSource).Cast<dynamic>().ToList();
@@ -157,7 +98,7 @@ namespace TFG.Pages
                     return;
                 }
 
-                string pdfPath = Path.Combine(FileSystem.CacheDirectory, "HistorialReserva.pdf");
+                string pdfPath = Path.Combine(FileSystem.CacheDirectory, "HistorialReserva" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".pdf");
                 using (PdfWriter writer = new PdfWriter(pdfPath))
                 using (PdfDocument pdf = new PdfDocument(writer))
                 using (Document document = new Document(pdf))
@@ -166,14 +107,16 @@ namespace TFG.Pages
                     document.Add(new Paragraph($"Desde: {desde} Hasta: {hasta}"));
                     document.Add(new Paragraph("\n"));
 
-                    Table table = new Table(3);
+                    Table table = new Table(4);
                     table.AddHeaderCell("Sala");
+                    table.AddHeaderCell("Usuario");
                     table.AddHeaderCell("Fecha");
                     table.AddHeaderCell("Hora");
 
                     foreach (var reserva in reservas)
                     {
                         table.AddCell(reserva.SalaNombre);
+                        table.AddCell(reserva.UsuarioNombre);
                         table.AddCell(reserva.Fecha.ToString("yyyy-MM-dd"));
                         table.AddCell(reserva.Hora);
                     }
@@ -200,6 +143,14 @@ namespace TFG.Pages
             {
                 DisplayAlert("Error", "No se pudo abrir el archivo: " + ex.Message, "OK");
             }
+        }
+        protected override bool OnBackButtonPressed()
+        {
+            MainThread.BeginInvokeOnMainThread(async () =>
+            {
+                await Navigation.PopAsync();
+            });
+            return true;
         }
     }
 }
