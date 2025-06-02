@@ -16,10 +16,13 @@ namespace TFG
             {
                 btnLogin.IsVisible = true;
                 btnRegister.IsVisible = true;
+                Title = "Bienvenido";
+                imgFondo.IsVisible = false;
             }
             else
             {
                 lblInfo.IsVisible = true;
+                imgFondo.IsVisible = true;
             }
         }
         private async void OnLoginClicked(object sender, EventArgs e)

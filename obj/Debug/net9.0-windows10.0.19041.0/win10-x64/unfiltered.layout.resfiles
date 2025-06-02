@@ -49,6 +49,7 @@ applogoWideTile.scale-125.png
 applogoWideTile.scale-150.png
 applogoWideTile.scale-200.png
 applogoWideTile.scale-400.png
+background.scale-100.jpg
 fondo.scale-100.jpg
 historial.scale-100.png
 icono.scale-100.png
@@ -61,4 +62,9 @@ sala3.scale-100.jpg
 sala4.scale-100.jpg
 sala5.scale-100.jpg
 usuario.scale-100.png
+applogoSplashScreen.scale-100.png
+applogoSplashScreen.scale-125.png
+applogoSplashScreen.scale-150.png
+applogoSplashScreen.scale-200.png
+applogoSplashScreen.scale-400.png
 AboutAssets.txt

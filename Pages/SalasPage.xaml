@@ -63,5 +63,12 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </ScrollView>
+        <ActivityIndicator Grid.Row="1"
+                            IsRunning="{Binding IsLoading}"
+                            IsVisible="{Binding IsLoading}"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            WidthRequest="50"
+                            HeightRequest="50"/>
     </Grid>
 </ContentPage>

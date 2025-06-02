@@ -536,3 +536,15 @@ C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-windows10.0.19041.0\
 C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\r\sala4.scale-100.jpg
 C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\r\registro.scale-100.png
 C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\r\icono.scale-100.png
+C:\Users\JUANAN\source\repos\Coworking\TFG\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\applogoSplashScreen.scale-100.png
+C:\Users\JUANAN\source\repos\Coworking\TFG\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\applogoSplashScreen.scale-125.png
+C:\Users\JUANAN\source\repos\Coworking\TFG\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\applogoSplashScreen.scale-150.png
+C:\Users\JUANAN\source\repos\Coworking\TFG\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\applogoSplashScreen.scale-200.png
+C:\Users\JUANAN\source\repos\Coworking\TFG\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\applogoSplashScreen.scale-400.png
+C:\Users\JUANAN\source\repos\Coworking\TFG\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\background.scale-100.jpg
+C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\sp\applogoSplashScreen.scale-100.png
+C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\sp\applogoSplashScreen.scale-125.png
+C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\sp\applogoSplashScreen.scale-150.png
+C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\sp\applogoSplashScreen.scale-200.png
+C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\sp\applogoSplashScreen.scale-400.png
+C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\r\background.scale-100.jpg

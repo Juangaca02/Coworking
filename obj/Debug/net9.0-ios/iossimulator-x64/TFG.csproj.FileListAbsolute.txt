@@ -373,3 +373,10 @@ C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-ios\iossimulator-x64
 C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-ios\iossimulator-x64\TFG.pdb
 C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-ios\iossimulator-x64\TFG.genruntimeconfig.cache
 C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-ios\iossimulator-x64\ref\TFG.dll
+C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-ios\iossimulator-x64\resizetizer\sp\applogo_817FB09546CD27B3559DAACD414FAAA62FBC485162DCB72DA6286A4A470E7F04.png
+C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-ios\iossimulator-x64\resizetizer\sp\applogo_817FB09546CD27B3559DAACD414FAAA62FBC485162DCB72DA6286A4A470E7F04@2x.png
+C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-ios\iossimulator-x64\resizetizer\sp\applogo_817FB09546CD27B3559DAACD414FAAA62FBC485162DCB72DA6286A4A470E7F04@3x.png
+C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-ios\iossimulator-x64\resizetizer\sp\MauiInfo.plist
+C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-ios\iossimulator-x64\resizetizer\sp\MauiSplash.storyboard
+C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-ios\iossimulator-x64\resizetizer\r\Resources\background.jpg
+C:\Users\JUANAN\source\repos\Coworking\TFG\obj\Debug\net9.0-ios\iossimulator-x64\ibtool\_BundleResourceWithLogicalName.items
