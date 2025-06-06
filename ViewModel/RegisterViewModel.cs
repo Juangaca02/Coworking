@@ -57,7 +57,7 @@ namespace TFG.ViewModel
                 Nombre = Usuario.Trim(),
                 Email = Email.Trim(),
                 Contrasena = Contraseña,
-                Admin = 0,
+                Admin = 1,
                 Imagen = "usuario.png"
             };
 

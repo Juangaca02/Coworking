@@ -30,86 +30,88 @@
         </Style>
     </ContentPage.Resources>
 -->
-    <VerticalStackLayout>
-        <Label x:Name="lblSalaCapacidad" Text="Capacidad:" IsVisible="False"/>
-        <Label x:Name="lblSalaEquipamiento" Text="Equipamiento:" IsVisible="False"/>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label x:Name="lblSalaCapacidad" Text="Capacidad:" IsVisible="False"/>
+            <Label x:Name="lblSalaEquipamiento" Text="Equipamiento:" IsVisible="False"/>
 
-        <calendar:SfCalendar x:Name="calendar_reservas"
+            <calendar:SfCalendar x:Name="calendar_reservas"
                         EnablePastDates="False"
                         SelectionMode="Single"
                         HeightRequest="200"
                         Margin="10,5,10,5"
                         SelectionChanged="OnCalendarSelectionChanged"
                         View="Month">
-            <calendar:SfCalendar.MonthView>
-                <calendar:CalendarMonthView NumberOfVisibleWeeks="3" FirstDayOfWeek="Monday" />
-            </calendar:SfCalendar.MonthView>
-        </calendar:SfCalendar>
+                <calendar:SfCalendar.MonthView>
+                    <calendar:CalendarMonthView NumberOfVisibleWeeks="3" FirstDayOfWeek="Monday" />
+                </calendar:SfCalendar.MonthView>
+            </calendar:SfCalendar>
 
-        <FlexLayout
+            <FlexLayout
             x:Name="flexLayout"
             JustifyContent="SpaceAround"
             HorizontalOptions="Center"
             Wrap="Wrap">
-            <FlexLayout.Resources>
-                <!-- Estilo para los botones (fallo al iniciar)-->
-                <Style TargetType="Button">
-                    <Setter Property="TextColor" Value="Black" />
-                    <Setter Property="BackgroundColor" Value="White" />
-                    <Setter Property="CornerRadius" Value="45" />
-                    <Setter Property="BorderWidth" Value="2" />
-                    <Setter Property="Margin" Value="2" />
-                </Style>
-            </FlexLayout.Resources>
-            <Button Clicked="SlotBooking_Change" Text="08:00 AM" />
-            <Button Clicked="SlotBooking_Change" Text="09:00 AM" />
-            <Button Clicked="SlotBooking_Change" Text="10:00 AM" />
-            <Button Clicked="SlotBooking_Change" Text="11:00 AM" />
-            <Button Clicked="SlotBooking_Change" Text="12:00 PM" />
-            <Button Clicked="SlotBooking_Change" Text="13:00 PM" />
-            <Button Clicked="SlotBooking_Change" Text="14:00 PM" />
-            <Button Clicked="SlotBooking_Change" Text="15:00 PM" />
-            <Button Clicked="SlotBooking_Change" Text="16:00 PM" />
-            <Button Clicked="SlotBooking_Change" Text="17:00 PM" />
-            <Button Clicked="SlotBooking_Change" Text="18:00 PM" />
-            <Button Clicked="SlotBooking_Change" Text="19:00 PM" />
-        </FlexLayout>
+                <FlexLayout.Resources>
+                    <!-- Estilo para los botones (fallo al iniciar)-->
+                    <Style TargetType="Button">
+                        <Setter Property="TextColor" Value="Black" />
+                        <Setter Property="BackgroundColor" Value="White" />
+                        <Setter Property="CornerRadius" Value="45" />
+                        <Setter Property="BorderWidth" Value="2" />
+                        <Setter Property="Margin" Value="2" />
+                        <Setter Property="Padding" Value="12"/>
+                    </Style>
+                </FlexLayout.Resources>
+                <Button Clicked="SlotBooking_Change" Text="08:00 AM" />
+                <Button Clicked="SlotBooking_Change" Text="09:00 AM" />
+                <Button Clicked="SlotBooking_Change" Text="10:00 AM" />
+                <Button Clicked="SlotBooking_Change" Text="11:00 AM" />
+                <Button Clicked="SlotBooking_Change" Text="12:00 PM" />
+                <Button Clicked="SlotBooking_Change" Text="13:00 PM" />
+                <Button Clicked="SlotBooking_Change" Text="14:00 PM" />
+                <Button Clicked="SlotBooking_Change" Text="15:00 PM" />
+                <Button Clicked="SlotBooking_Change" Text="16:00 PM" />
+                <Button Clicked="SlotBooking_Change" Text="17:00 PM" />
+                <Button Clicked="SlotBooking_Change" Text="18:00 PM" />
+                <Button Clicked="SlotBooking_Change" Text="19:00 PM" />
+            </FlexLayout>
 
-        <HorizontalStackLayout HorizontalOptions="Center" >
-            <Button BackgroundColor="red"
+            <HorizontalStackLayout HorizontalOptions="Center" >
+                <Button BackgroundColor="red"
                     Margin="0,10,20,0"
                     Text="Volver"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
                     WidthRequest="75"
                     Clicked="Volver_Clicked"/>
-            <Button BackgroundColor="#4CAF50"
+                <Button BackgroundColor="#4CAF50"
                     Margin="0,10,0,0"
                     Text="Reservar horario"
                     Clicked="Button_Clicked"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
                     WidthRequest="150"/>
-        </HorizontalStackLayout>
+            </HorizontalStackLayout>
 
+            <popup:SfPopup
+                x:Name="appointmentPopup"
+                FooterHeight="88"
+                HeightRequest="152"
+                ShowCloseButton="True"
+                ShowOverlayAlways="False"
+                IsVisible="Hidden"
+                WidthRequest="312">
+                <popup:SfPopup.PopupStyle>
+                    <popup:PopupStyle
+                    CornerRadius="8"
+                    FooterBackground="#FFFFFF"
+                    HasShadow="True"
+                    HeaderBackground="#FFFFFF"
+                    MessageBackground="#FFFFFF" />
+                </popup:SfPopup.PopupStyle>
+            </popup:SfPopup>
 
-        <popup:SfPopup
-            x:Name="appointmentPopup"
-            FooterHeight="88"
-            HeightRequest="152"
-            ShowCloseButton="True"
-            ShowOverlayAlways="False"
-            WidthRequest="312">
-            <popup:SfPopup.PopupStyle>
-                <popup:PopupStyle
-                CornerRadius="8"
-                FooterBackground="#FFFFFF"
-                HasShadow="True"
-                HeaderBackground="#FFFFFF"
-                MessageBackground="#FFFFFF" />
-            </popup:SfPopup.PopupStyle>
-        </popup:SfPopup>
-
-    </VerticalStackLayout>
-
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

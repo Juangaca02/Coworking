@@ -14,14 +14,20 @@ namespace TFG.Pages
 
         public HistorialPage()
         {
+            //try{
             InitializeComponent();
             _SalaServicio = SalaServicio.GetInstancia();
             CargarHistorialVisual();
+            //}
+            //catch (Exception ex)
+            //{
+            ////ventana en la que mostrar los fallos
+            //Application.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
+            //}
         }
 
         private async void CargarHistorialVisual()
         {
-            //List<Reservas> reservas;
             var reservas = await _SalaServicio.ObtenerTodasLasReservas();
             if (SesionActual.UsuarioLogueado.Admin != 1)
             {
@@ -123,7 +129,7 @@ namespace TFG.Pages
 
                     document.Add(table);
 
-                    await Shell.Current.DisplayAlert("Éxito", "Informe PDF generado", "OK");
+                    await Shell.Current.DisplayAlert("Exito", "Informe PDF generado", "OK");
                     await Launcher.OpenAsync(new OpenFileRequest { File = new ReadOnlyFile(pdfPath) });
                 }
             }

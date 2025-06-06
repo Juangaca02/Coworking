@@ -1,8 +1,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TFG.Pages.HistorialPage"
-             BackgroundColor="White"
-             Title="Historial">
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                x:Class="TFG.Pages.HistorialPage"
+                BackgroundColor="White"
+                Title="Historial">
     <ContentPage.Background>
         <LinearGradientBrush EndPoint="0,1">
             <GradientStop Color="#FFFFFF" Offset="0.0" />
@@ -18,9 +18,7 @@
         </VerticalStackLayout>
 
         <ScrollView Grid.Row="1">
-            <VerticalStackLayout Padding="20" Spacing="15"
-                                HorizontalOptions="Center"
-                                WidthRequest="{Binding Source={x:Reference scrollHost}, Path=Width, Converter={StaticResource WidthPaddingConverter}}">
+            <VerticalStackLayout Padding="20" Spacing="15" HorizontalOptions="Center">
 
                 <HorizontalStackLayout Spacing="10">
                     <Label Text="Desde:" Margin="0,12,0,0" />
@@ -33,8 +31,7 @@
                     <Button Text="Generar PDF" x:Name="btnPdf" Clicked="OnPdfClicked" WidthRequest="150" />
                 </HorizontalStackLayout>
 
-                <CollectionView x:Name="tablaReservas"
-                                HorizontalOptions="FillAndExpand">
+                <CollectionView x:Name="tablaReservas" HorizontalOptions="FillAndExpand">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid Padding="10" ColumnDefinitions="*,*,*">
@@ -47,10 +44,10 @@
                 </CollectionView>
 
                 <Label x:Name="mensajeVacio"
-                       Text="No hay salas disponibles."
-                       TextColor="Red"
-                       HorizontalOptions="Center"
-                       IsVisible="False" />
+                        Text="No hay salas disponibles."
+                        TextColor="Red"
+                        HorizontalOptions="Center"
+                        IsVisible="False" />
 
             </VerticalStackLayout>
         </ScrollView>

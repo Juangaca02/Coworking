@@ -23,6 +23,6 @@
         <Label Text="Confirmar Contraseña" FontSize="Medium"/>
         <Entry Placeholder="Confirmar Contraseña" Text="{Binding ConfirmarContraseña}" IsPassword="True" />
 
-        <Button Text="Registrarse" Command="{Binding RegistrarCommand}" />
+        <Button Text="Registrarse" Command="{Binding RegistrarCommand}" BackgroundColor="#4CAF50" />
     </VerticalStackLayout>
 </ContentPage>

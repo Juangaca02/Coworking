@@ -83,19 +83,7 @@ namespace TFG
 
                 if (!string.IsNullOrEmpty(usuario.Imagen))
                 {
-                    try
-                    {
-                        var base64 = usuario.Imagen;
-                        imgUsuarioFlyout.Source = ImageSource.FromStream(() =>
-                        {
-                            byte[] bytes = Convert.FromBase64String(base64);
-                            return new MemoryStream(bytes);
-                        });
-                    }
-                    catch
-                    {
-                        imgUsuarioFlyout.Source = "usuario.png";
-                    }
+                    imgUsuarioFlyout.Source = "usuario.png";
                 }
                 else
                 {
@@ -126,6 +114,8 @@ namespace TFG
             if (confirm)
             {
                 SesionActual.UsuarioLogueado = null;
+                await Shell.Current.GoToAsync("//menuPrincipal");
+                CargarInfoUsuario();
                 ActualizarEstadoSesion();
             }
         }
